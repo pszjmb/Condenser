@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.11)  11 NOV 2011 14:00
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.11)  11 NOV 2011 14:30
 entering extended mode
 **condenser.tex
-(C:\Users\pszjmb\Documents\synchronization\spec\condenser.tex
+(C:\Users\pszjmb\Documents\synchronization\git\spec\condenser.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -131,10 +131,10 @@ File: pdftex.def 2010/09/14 v0.05b Graphics/color for pdfTeX
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-(C:\Users\pszjmb\Documents\synchronization\spec\condenser.aux
-(C:\Users\pszjmb\Documents\synchronization\spec\scope.aux)
-(C:\Users\pszjmb\Documents\synchronization\spec\requirements.aux)
-(C:\Users\pszjmb\Documents\synchronization\spec\related.aux))
+(C:\Users\pszjmb\Documents\synchronization\git\spec\condenser.aux
+(C:\Users\pszjmb\Documents\synchronization\git\spec\scope.aux)
+(C:\Users\pszjmb\Documents\synchronization\git\spec\requirements.aux)
+(C:\Users\pszjmb\Documents\synchronization\git\spec\related.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
@@ -172,14 +172,14 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\pszjmb\Documents\synchronization\spec\condenser.toc)
+(C:\Users\pszjmb\Documents\synchronization\git\spec\condenser.toc)
 \tf@toc=\write3
  [2]
-(C:\Users\pszjmb\Documents\synchronization\spec\scope.tex) [3
+(C:\Users\pszjmb\Documents\synchronization\git\spec\scope.tex) [3
 
 ]
-(C:\Users\pszjmb\Documents\synchronization\spec\requirements.tex
-(C:\Users\pszjmb\Documents\synchronization\spec\usage.tex
+(C:\Users\pszjmb\Documents\synchronization\git\spec\requirements.tex
+(C:\Users\pszjmb\Documents\synchronization\git\spec\usage.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
 
 (V:\texmaker.2\MikTeX2.9\tex\latex\base\omscmr.fd
@@ -191,28 +191,28 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 
 
 ] [5]) [6]) [7] [8]
-(C:\Users\pszjmb\Documents\synchronization\spec\related.tex) [9
+(C:\Users\pszjmb\Documents\synchronization\git\spec\related.tex) [9
 
 
 ]
-(C:\Users\pszjmb\Documents\synchronization\spec\condenser.aux
-(C:\Users\pszjmb\Documents\synchronization\spec\scope.aux)
-(C:\Users\pszjmb\Documents\synchronization\spec\requirements.aux)
-(C:\Users\pszjmb\Documents\synchronization\spec\related.aux)) ) 
+(C:\Users\pszjmb\Documents\synchronization\git\spec\condenser.aux
+(C:\Users\pszjmb\Documents\synchronization\git\spec\scope.aux)
+(C:\Users\pszjmb\Documents\synchronization\git\spec\requirements.aux)
+(C:\Users\pszjmb\Documents\synchronization\git\spec\related.aux)) ) 
 Here is how much of TeX's memory you used:
  1930 strings out of 494019
- 24314 string characters out of 3148238
+ 24430 string characters out of 3148238
  80199 words of memory out of 3000000
  5198 multiletter control sequences out of 15000+200000
  10159 words of font info for 38 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  27i,6n,22p,571b,193s stack positions out of 5000i,500n,10000p,200000b,50000s
-<V:/texmaker.2/M
-ikTeX2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><V:/texmaker.2/MikTeX2.9/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb><V:/texmaker.2/MikTeX2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><V:/texmaker.2/MikTeX2.9/fonts/type1/public/amsfonts/
-cm/cmsl10.pfb><V:/texmaker.2/MikTeX2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b>
+<V:/texmaker
+.2/MikTeX2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><V:/texmaker.2/MikTeX2.9
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb><V:/texmaker.2/MikTeX2.9/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><V:/texmaker.2/MikTeX2.9/fonts/type1/public/amsfo
+nts/cm/cmsl10.pfb><V:/texmaker.2/MikTeX2.9/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb>
 Output written on condenser.pdf (9 pages, 92871 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
