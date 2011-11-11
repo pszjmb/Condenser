@@ -1,0 +1,79 @@
+% This file was created with JabRef 2.7.2.
+% Encoding: Cp1252
+
+@ARTICLE{armbrust2009above,
+  author = {Armbrust, M. and Fox, A. and Griffith, R. and Joseph, A.D. and Katz,
+	R.H. and Konwinski, A. and Lee, G. and Patterson, D.A. and Rabkin,
+	A. and Stoica, I. and others},
+  title = {Above the clouds: A berkeley view of cloud computing},
+  journal = {EECS Department, University of California, Berkeley, Tech. Rep. UCB/EECS-2009-28},
+  year = {2009},
+  volume = {1},
+  pages = {1},
+  publisher = {Citeseer}
+}
+
+@ARTICLE{briefingscan,
+  author = {Briefings, S.},
+  title = {Can We Plug Wireless Sensor Network to Cloud?},
+  journal = {cloud computing: pinnacle of IT Infrastructure democratization},
+  year = {2009},
+  volume = {7},
+  pages = {33}
+}
+
+@ARTICLE{das2011albatross,
+  author = {Das, S. and Nishimura, S. and Agrawal, D. and El Abbadi, A.},
+  title = {Albatross: lightweight elasticity in shared storage databases for
+	the cloud using live data migration},
+  journal = {Proceedings of the VLDB Endowment},
+  year = {2011},
+  volume = {4},
+  pages = {494--505},
+  number = {8},
+  publisher = {VLDB Endowment}
+}
+
+@ARTICLE{dong2011rfs,
+  author = {Dong, Y. and Zhu, H. and Peng, J. and Wang, F. and Mesnier, M.P.
+	and Wang, D. and Chan, S.C.},
+  title = {RFS: a network file system for mobile devices and the cloud},
+  journal = {ACM SIGOPS Operating Systems Review},
+  year = {2011},
+  volume = {45},
+  pages = {101--111},
+  number = {1},
+  publisher = {ACM}
+}
+
+@INPROCEEDINGS{stuedi2010wherestore,
+  author = {Stuedi, P. and Mohomed, I. and Terry, D.},
+  title = {WhereStore: location-based data storage for mobile devices interacting
+	with the cloud},
+  booktitle = {Proceedings of the 1st ACM Workshop on Mobile Cloud Computing \&
+	Services: Social Networks and Beyond},
+  year = {2010},
+  pages = {1},
+  organization = {ACM}
+}
+
+@INPROCEEDINGS{uppoor2010cloud,
+  author = {Uppoor, S. and Flouris, M.D. and Bilas, A.},
+  title = {Cloud-based synchronization of distributed file system hierarchies},
+  booktitle = {Cluster Computing Workshops and Posters (CLUSTER WORKSHOPS), 2010
+	IEEE International Conference on},
+  year = {2010},
+  pages = {1--4},
+  organization = {IEEE}
+}
+
+@comment{jabref-meta: selector_review:}
+
+@comment{jabref-meta: selector_publisher:}
+
+@comment{jabref-meta: selector_author:}
+
+@comment{jabref-meta: selector_journal:}
+
+@comment{jabref-meta: selector_keywords:}
+
