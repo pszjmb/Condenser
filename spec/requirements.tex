@@ -1,0 +1,37 @@
+\section{Requirements}
+	\input{usage}
+	\subsection{Functional Requirements}
+\begin{itemize}
+\item Condenser is a data logging infrastructural component for use in software projects requiring intermittent synchronization with external environments. 
+
+\item Functionality of Condenser is configurable through a RESTful interface. Clients can use HTTP calls to configure where and how often data is stored. Condenser can be used with cloud-based storage or more traditional server storage.
+
+\item Condenser is capable of handling disconnected operation by ensuring data are stored locally until network connection is resumed. Condenser evaluate expected data needs while offline and can be configured to clean, aggregate or delete data to handle limited local drive space.
+
+\item Condenser does not have (or need) a graphical user interface. 
+
+\item Condenser will automatically provide standard metadata.
+
+\item Condenser will log its own performance to an external repository (with configurable repository and verbosity).
+
+\item Condenser should run as a background service that turns on automatically at startup
+\end{itemize}
+	\subsection{Non-functional Requirements}
+		\subsubsection{Reliability and Security}
+Condenser should continue to work reliably during periods of network disconnect. Error conditions that arise during periods of disconnect should be logged in a similar fashion to sensor data and transmitted externally (to a configurable store) upon resumption of network connection. Configurable options should be made available to allow for secure data transmission and storage. Data store connection settings must be encrypted.		
+		\subsubsection{Test Data}
+Even though Condenser will be data-type neutral, it will be tested using temperature, humidity, energy and C02 sensors data. Data sets will include: time-series data, discreet values and aggregate information. Condenser will be tested with up to 2GB of data.		
+		\subsubsection{Performance}
+Condenser'	s external storage performance during times of reliable network connection will be configurable is order for an administrator to choose the amount of bandwidth will be taken up transferring data offsite. Condenser should support the offsite data transfer of up to 4095 sources as well as one more for its own logging information. 	
+		\subsubsection{Supportability}
+Condenser tests, code, installation, administration and usage will be well documented.	
+		\subsubsection{Implementation}
+The local logging Condenser component will be operational on a Plug computer. Off the shelf technology may be (and indeed is encouraged to be) used to get a working version of Condenser built as soon as possible. New developments should be test-driven with an emphasis on documentation. 		
+		\subsubsection{Interface}
+Condenser should support a RESTful interface for its activation, configuration and data transmission. Condenser should be compatible with other Relate project.		
+		\subsubsection{Operation}
+Condenser will be managed by Horizon staff or project clients.		
+		\subsubsection{Packaging}
+Condenser will be installed initially by Horizon project staff, with a view that client system administrators will be supported in the future. Condenser will initially be rolled-out for beta-testing in February, 2011.  		
+		\subsubsection{Legal}
+Condenser will be licensed under The GNU Affero General Public License (AGPL 3). No liability will be assumed by Condenser's developers for losses incurred through its use since it is experimental and research driven software. Only Free (libre) software will be used for the development of Condenser.		
