@@ -9,44 +9,5 @@ These actors are involved in the following usage scenarios:
 \item Energy	project participant (EPP)
 \end{itemize}
 
-\subsection{Usage Scenarios}
-	\line(1,0){350}
-			\subsubsection{Relate Project: Condenser Installation}
-			Participating Actors:  Anne:AIS , Harry:HPS \\
-\textbf{Event Flow:}
-	\begin{enumerate}
-\item  Anne prepares to run an energy and climate data collection exercise in the Brazilian rain forest using open mobile sensing kits (OMSK).
-\item  Harry installs Condenser on the local server component of the OMSKs.
-\item  Harry configures a Cloud-server to accept data uploads from each OMSK.
-\item  Harry uses the Condenser RESTful interfaces to configure them to log the data from their local stores to the cloud when connectivity is available. He also configures them to run in low-powered mode by setting their reconnection attempts to a low amount and to only send data in aggregated bursts every hour.
-	\end{enumerate}
-	\line(1,0){350}
-			\subsubsection{Relate Project: Oasis of Connectivity}
-			Overview: Condenser's behaviour in long period without connectivity \\
-			Participating Actors:  Anne:AIS, Miguel:MP \\
-\textbf{Event Flow:}
-	\begin{enumerate}
-\item Anne conducts a public art activity in the Brazilian rain forest.
-\item Anne gives Miguel an OMSK.
-\item Miguel activates the OMSK as part of the activity.
-\item On start up the OMSK activates Condenser and begins to capture temperature, humidity, C02 and energy information.
-\item No network connectivity is available to Condenser so it evaluates the expected data load and determines that no action needs to occur until the next connection attempt. [Note that this would be much more complicated if Condenser determined that the current data capture rates exceeded the storage capacity ]
-\item Miguel returns the OMSK to Anne, and she returns to her office with it.
-\item Condenser successfully attempts to connect to the network after its timeout. 
-\item Condenser transfers the data from the OMSK to the Cloud-store.
-\item Anne looks at the day's data using the web-based visualisation tools. These have immediate access to the Cloud-data.
-	\end{enumerate}
-	\line(1,0){350}	
-	\subsubsection{Energy Project: Trickle of Connectivity}
-			Overview: Condenser's behaviour during intermittent connectivity \\
-			Participating Actors:  Harry:HPS, Ernie:EPP \\
-\textbf{Event Flow:}
-	\begin{enumerate}
-\item Harry is conducting an energy study.
-\item Harry sets up a Shiva Plug computer with an energy monitor.
-\item Harry installs Condenser on the Shiva Plug.
-\item Harry configures Condenser to attempt to reconnect whenever possible and to send discrete data points to a rack-mounted server using particular authentication details. 
-\item  Harry installs the energy monitor in Ernie's home and configures it to use Ernie's home router.
-\item Condenser attempts to transmit data as the energy monitor receives them, but connectivity is intermittent owing to Ernie's unstable Internet connection.
-	\end{enumerate}
-	\line(1,0){350}
+\input{scenarios}
+\input{useCases}
