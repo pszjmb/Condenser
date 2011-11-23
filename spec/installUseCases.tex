@@ -121,7 +121,7 @@ The following use cases pertain to installation of Condenser. Figure~\ref{Instal
 		\textbf{Event Flow:}
 		\begin{enumerate}
 \item HPS accesses the node registry web interface for the given device. 
-\item HPS registers one or more nodes to capture data for.
+\item HPS subscribes Condenser to one or more nodes (data publisher or broadcaster) to capture data for.
 \item For each node HPS records data provenance information (such as node type -- ie. type of sensor) and other metadata pertaining to the given node.
 \item HPS ensures that each node can transmit data to Condenser and that the given data are stored locally.
 	    \end{enumerate}
