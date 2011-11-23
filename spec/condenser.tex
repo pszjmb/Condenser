@@ -1,25 +1,27 @@
-\documentclass[11pt,a4paper,draft]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\author{Jesse Blum}
-\title{Condenser: Data Logging Platform}
+
+% Puts borders around figures
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+
+\author{Jesse Blum\\
+	    for the\\
+    	Horizon Digital Economy Research Institute\\
+        \texttt{jesse.blum@nottingham.ac.uk}}
+\title{Condenser: Cloud Storage Gateway}
+\date{Nov. 2011}
+\newcommand{\VerName}{SRS-DLP-0.2} 
 \begin{document}
+\maketitle
 \thispagestyle{empty}
 \begin{center}
-    \begin{section}*{Software Requirements Specification}     
-    \textbf{Condenser: Data Logging Platform}\\
-    \medskip
-    Version 0.1 draft\\    
-    \bigskip
-    Prepared by:\\
-    Jesse Blum\\
-    for the\\
-    Horizon Digital Economy Research Institute\\
-    Nov, 2011
-    \end{section}
+    Version 0.2 draft\\ 
 \end{center}   
     \bigskip	
     \bigskip
@@ -38,14 +40,17 @@
     \hline
     SRS-DLP-0.1&11-2011&First draft&0.1\\
     \hline
+    \VerName &11-2011&Research shift from logging to cloud gateway&0.2\\
+    \hline
     \end{tabular}
     \markright{Software Requirements Specification for Condenser}
     \end{section}
  \end{center} 
     \newpage
     \pagestyle{myheadings}
-    \markright{SRS-DLP-0.1}
+    \markright{\VerName}
     \tableofcontents
+    \listoffigures
     \newpage
     \include{scope}
 	\include{requirements}
