@@ -2,13 +2,13 @@
 	\input{usage}
 	\subsection{Functional Requirements}
 \begin{itemize}
-\item Condenser is a data logging infrastructural component for use in software projects requiring intermittent synchronization with external environments. 
+\item Condenser is a cloud gateway infrastructural component for use in software projects requiring data transmission and intermittent synchronization with external environments. 
 
 \item Functionality of Condenser is configurable through a RESTful interface. Clients can use HTTP calls to configure where and how often data is stored. Condenser can be used with cloud-based storage or more traditional server storage.
 
-\item Condenser is capable of handling disconnected operation by ensuring data are stored locally until network connection is resumed. Condenser evaluate expected data needs while offline and can be configured to clean, aggregate or delete data to handle limited local drive space.
+\item Condenser is capable of handling disconnected operation by ensuring data are cached locally until network connection is resumed. Condenser evaluates expected data needs while offline and can be configured to clean, aggregate or delete data to handle limited local drive space.
 
-\item Condenser does not have (or need) a graphical user interface. 
+\item Condenser uses a web-based interface to set certain configuration settings. 
 
 \item Condenser will automatically provide standard metadata.
 
@@ -28,7 +28,9 @@ Condenser tests, code, installation, administration and usage will be well docum
 		\subsubsection{Implementation}
 The local logging Condenser component will be operational on a Plug computer. Off the shelf technology may be (and indeed is encouraged to be) used to get a working version of Condenser built as soon as possible. New developments should be test-driven with an emphasis on documentation. 		
 		\subsubsection{Interface}
-Condenser should support a RESTful interface for its activation, configuration and data transmission. Condenser should be compatible with other Relate project.		
+Condenser should support a RESTful interface for its activation, configuration and data transmission. Condenser should be compatible with other Relate, HomeWork and Energy project components.
+
+Condenser should be able to store data externally using a common solutions such as	Amazon S3, Windows SQL Azure and FTP.
 		\subsubsection{Operation}
 Condenser will be managed by Horizon staff or project clients.		
 		\subsubsection{Packaging}

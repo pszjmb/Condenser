@@ -2,7 +2,7 @@
 The following use cases pertain to how Condenser transfers data to the cloud. Figure~\ref{DataTransferUse} shows a diagram depicting the relationships between the data transfer use cases.
 \begin{center}
 	\begin{figure}[htbp]
-		\includegraphics[scale=.5]{images/DataTransferUse.png}
+		%\includegraphics[scale=.5]{images/DataTransferUse.png}
 		\caption{Use cases defining Condenser data transfer.\label{DataTransferUse}}
 	\end{figure}
 \end{center}	
@@ -14,6 +14,7 @@ The following use cases pertain to how Condenser transfers data to the cloud. Fi
 		\begin{enumerate}
 \item The HP or PP initiates data transfer from one or more nodes to Condenser.
 \item Data is cached locally.
+\item When a data transfer event is initiated Condenser attempts to connect to and authenticate itself with one or more external data storage providers.
 \item If there is external network connectivity then data is transferred off site (see time-orientated and event-orientated data transfer use cases) along with metadata see (see metadata transfer use case) and log information (see log file transfer use case). The data may be transferred periodically (see Time-orientated Data Transfer use case) or in response to events (see Event-orientated Data Transfer use case). 
 \item See Handle unavailable connectivity use case for when connectivity to the external network cannot be established.
 	    \end{enumerate}

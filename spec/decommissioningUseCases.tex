@@ -6,36 +6,45 @@ The following use cases pertain to the decomissioning of Condenser components. F
 		\caption{Use cases defining Condenser decomissioning.\label{DecomissioningUse}}
 	\end{figure}
 \end{center}	
+\textbf{Use Cases:}\\
 
-	Removing a node \\	 
-	\textbf{Participating Actors:}  ... \\
+	\textbf{Removing a node} \\	 
+	\textbf{Participating Actors:} Horizon Project Staff(HPS) and/or Horizon Partner (HP) \\
 	\textbf{Event Flow:}
 	\begin{enumerate}
-\item  ...
+\item HPS or HP accesses the node registry web interface for the given device. 
+\item HPS or HP un-subscribes to a node.
+\item Condenser ceases to receive data from the node.
+	    \end{enumerate}
+		\textbf{Entry Conditions:} A node is registered with Condenser.\\
+		\textbf{Exit Conditions:} The node is no longer registered with Condenser.\\
+		\line(1,0){350}
+
+	\textbf{Removing all nodes} \\	 
+	\textbf{Participating Actors:}  Horizon Project Staff(HPS) and/or Horizon Partner (HP) \\
+	\textbf{Event Flow:}
+	\begin{enumerate}
+\item HPS or HP accesses the node registry web interface for the given device. 
+\item HPS or HP un-subscribes all nodes.
     \end{enumerate}
-	\textbf{Entry Conditions:}\\
-	\textbf{Exit Conditions:}\\
-	\textbf{Quality Requirements:}\\
+	\textbf{Entry Conditions:} At least one node is registered with Condenser.\\
+	\textbf{Exit Conditions:} No nodes are registered with Condenser.\\
 	\line(1,0){350}		
 
-	Removing all nodes \\	 
-	\textbf{Participating Actors:}  ... \\
+	\textbf{Taking Condenser offline} \\	 
+	\textbf{Participating Actors:}  Horizon Project Staff(HPS) and/or Horizon Partner (HP) \\
 	\textbf{Event Flow:}
 	\begin{enumerate}
-\item  ...
+\item HPS or HP accesses the uninstall web interface for the given device. 
+\item After a suitable warning HPS or HP initiate unistall.
+\item Condenser attempts to backup all outstanding data, metadata and longs.
+\item Condenser removes its local data storage contents and schema.
+\item Condenser removes all of its installed software.
     \end{enumerate}
-	\textbf{Entry Conditions:}\\
-	\textbf{Exit Conditions:}\\
-	\textbf{Quality Requirements:}\\
-	\line(1,0){350}		
-
-	Taking Condenser offline \\	 
-	\textbf{Participating Actors:}  ... \\
-	\textbf{Event Flow:}
+	\textbf{Entry Conditions:} Condenser is running.\\
+	\textbf{Exit Conditions:}\\	
 	\begin{enumerate}
-\item  ...
+\item All data cached by Condenser is replicated elsewhere.
+\item Condenser is uninstalled leaving no footprint.
     \end{enumerate}
-	\textbf{Entry Conditions:}\\
-	\textbf{Exit Conditions:}\\
-	\textbf{Quality Requirements:}\\
 	\line(1,0){350}		
