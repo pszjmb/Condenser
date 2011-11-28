@@ -1,5 +1,3 @@
-The following is currently incomplete plain text notes (untex formatted). Todo: add notes; write article from notes; format for tex.
-
 Cloud Storage Synchronization Literature Search
 
 Provenance
@@ -38,7 +36,7 @@ Outcomes
 				- Obstacles:	* Service availability
 								* Data lock-in -- possibly mitigated by API standardization
 								* Data confidentiality -- mitigated by encryption prior to storage
-								* Data transfer bottlenecks -- costs ($100-$150 / TB -- unclear where figure comes from; )
+								* Data transfer bottlenecks -- costs (\$100-\$150 / TB -- unclear where figure comes from; )
 																- SneakerNet is probably not viable here [Automated SneakerNet for smart buildings???]
 			
 			Cloud Storage: Adoption, Practice and Deployment
@@ -48,14 +46,63 @@ Outcomes
 				- Block Systems, File Systems (CIFS, NFS and GFS) and Object Storage				
 
 		Sensor-Cloud
-			A framework of sensor-cloud integration opportunities and challenges
-			System Architecture Directions for Tangible Cloud Computing
-			A design of flexible data channels for sensor-cloud integration
-			Usable, lightweight and secure, architecture and programming interface for integration of Wireless Sensor Network to the Cloud.
-			WhereStore: location-based data storage for mobile devices interacting with the cloud
 			Can We Plug Wireless Sensor Network to Cloud?
+				- Raw data vs events
+					simple or complex events
+				- Proposed platform architecture (unclear where platform components live)
+					[Of interest to this work (other componenets are downstream to sync data)]
+					* WSN virtualiseation manager
+						- adapter provides raw byte stream from WSN to gateway which gateway enques as a raw packet in a buffer
+						- Data processors affect enqueued packets
+						- Command interpreter reprograms sensors via the gateway
+					* Computation and storage manager
+						- Processes and archives sensor data as XML
+			% System Architecture Directions for Tangible Cloud Computing
+				% - Excluded on the basis of not solving sync problem
+			A framework of sensor-cloud integration opportunities and challenges
+				- Goal: connect sensors, people and s/w to build community-centric sensing applications
+				- "current Cloud providers did not address the issue of integrating sensor network with Cloud applications and thus have no infrastructure to support this scenario"
+				- Cloud vs grid (and how cloud is more appropriate for WSN data, but wsn-cloud integration is an unaddressed issue )
+				- Proposed solution
+					- Sensors stream data to gateway
+					- Gateway sends data to pub-sub system in the cloud
+					- Cloud services provide event monitoring and application services
+			A design of flexible data channels for sensor-cloud integration
+				- Attempts to integrate data channels from sensors to data analysis jobs in cloud
+				- Their tools include Sensor Server
+					- Runs on SN master node
+					- activate/deactivate slave nodes
+					- filter sn data
+					- deliver data to clouds
+					- Acts as a pull-based FTP server that makes sensors accessible to cloud services as files
+				- Comms models
+					- Push based
+						* 1 data point = UDP packet or SNMP packet
+					- Pull based				
+			WhereStore: location-based data storage for mobile devices interacting with the cloud
+				%- [A lot of the paper would be useful when considering predicitve storage patterns, however notes about their location prediction have been excluded from this lit revie]
+					% - "Predicting an application's data pattern is one problem, deciding the exact time at which data should be fetched from the cloud is yet another." 
+					% - "a system like WhereStore can use information about current and future Internet access opportunities as well as information about dierent access technologies (e.g. 3G or WiFi) to make decisions about when to communicate with a remote cloud storage service. An intelligent decision may reduce the total power consumption of the device without data access penalties"
+				- Filtered replication
+					- keep data synced b/w set of peers
+						- collections of items (each item containing data and metadata)
+						- replicas of entire collections or subsets
+						- filters (predicates over metadata) describe subsets
+				- architecture
+					- phone client, cloud server
+					- WhereStore is stacked on top of:
+						-filtered replication system
+							- sync local cache on phone with cloud data items
+							- smartphone replica contains items defined by its filter
+								- subset of items for which totla capacity is below specified storage capacity
+								- selection algorithm is given in paper
+							- Based on Cimbiosys
+								- Data accessed through callbacks
+						-location service
+						
 			Challenges in Secure Sensor-Cloud Computing
 			A survey of mobile cloud computing
+			Usable, lightweight and secure, architecture and programming interface for integration of Wireless Sensor Network to the Cloud.
 			
 	Cloud Storage Gateway
 		General resources
@@ -65,7 +112,8 @@ Outcomes
 				- gateway resides at customer site
 					- can be dedicated appliance/server, virtual appliance/server, or s/w application
 						- features: compression, deduplication, encryption, caching, backup & recovery
-				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost \$50000+)		
+				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost $50000+)		
+			Cloud4Home— Enhancing Data Services with @Home Clouds
 			http://gladinet.blogspot.com/2010/09/how-to-pick-cloud-storage-gateway.html 
 			http://www.cloudswitch.com/page/now-everybody-wants-a-cloud-gateway
 			http://www.cloudswitch.com/blog/category/Cloud%20Gateway%20Series
@@ -102,6 +150,7 @@ Outcomes
 			File synch alternatives 
 			VCS discussion
 			http://en.wikipedia.org/wiki/Comparison_of_file_synchronization_software
+			Cimbiosys: A platform for content-based partial replication
 		
 		Common synch tools
 			rsync
@@ -244,3 +293,6 @@ Outcomes
 
 	Weak connections
 		weaklyconnectedusers
+		Peer-to-peer Data Replication Meets Delay Tolerant Networking
+	Deduplication
+		Building a high-performance deduplication system
