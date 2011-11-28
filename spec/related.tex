@@ -1,39 +1,246 @@
-\section{Related Works}
-	\subsection{Data Brokers}
-		\subsubsection{Pachube}
-			\begin{itemize}
-				\item RESTful
-				\item Environment, Datastream and Datapoint model
-				\item Push and Pull capabilities with ``live'' and ``frozen'' status
-				\item Supports HTTPS/SSL
-				\item Authentication is handled using API keys.
-			\end{itemize}		
-			\cite{Pachube2011}
-		\subsubsection{Others}	
-			\cite{briefingscan}	
-	\subsection{Data Synchronization, Replication and Mirroring}
-		\cite{agarwal2002scalability}
-	\subsection{Distributed Filesystem}		
-		\cite{dong2011rfs}
-	\subsection{Cloud Synchronization}
-		\subsubsection{General CS}
-			\cite{uppoor2010cloud}
-			\cite{armbrust2009above}
-		\subsubsection{Sensor Network CS}		
-			\cite{hassan2009framework}
-			\cite{lee2010system}
-			\cite{melchor2011design}
-			\cite{patil2011usable}
-			\cite{stuedi2010wherestore}
-	\subsubsection{Unstructured Database Options}
-		\begin{itemize}
-		\item CouchDB
-		\item MongoDB
-		\end{itemize}
-	\subsubsection{Structured Database Options}
-		\begin{itemize}
-		\item SQL Azure DB
-		\end{itemize}
-	\subsection{Policies and Rules}
-	\subsection{Agents}
-	\subsection{Sensor Metadata}
+The following is currently incomplete plain text notes (untex formatted). Todo: add notes; write article from notes; format for tex.
+
+Cloud Storage Synchronization Literature Search
+
+Provenance
+	JMB
+	Nov. 2011
+	Scope: 
+		- Interested in determining current solutions for storing sensor data in the Cloud
+		- required understanding of:
+			* general cloud computing ideas and terminology
+			* specific connections between Cloud Computing & Sensors
+			* cloud (and general file/data) synchronization options
+			* database replication
+			* Weak n/w connection handling
+		- During search expanded notion from simple synchronization at source to cloud gateway
+
+	Methods:
+			Google scholar
+			Wikipedia
+			Paper references
+			alternativeto
+			ieee
+			acm
+
+Outcomes			
+	Cloud Computing & Sensor Data
+		- Most resources are orientated at the Cloud-level (that is to tsay the back-end data centres) rather than the data input level
+		- "Capacities continue to double each year, while access times are improving at 10 percent per year." - Jim Grey http://queue.acm.org/detail.cfm?id=864078
+		- The Big 4 (Amazon, Microsoft, Google and Rackspace) offer various storage models
+		- According to http://www.broadbandspeedchecker.co.uk/: 31.21 Mb/s download (337068 MB/d ), 13.29 Mb/s upload (143532 MB/d) here at Horizon
+		General resources
+			Above the Clouds: A Berkeley View of Cloud Computing
+				- Definitions: 	* cloud = Datacentre h/w + s/w
+								* SaaS = Services run on top of datacentre
+				- Opportunities:	* The cloud will become dominant because it is the most convinient way to store automated (large) datasets from sensors and users -- services can then process, analyse and mashup the highly available data 
+									* infinite capacity on-demand
+				- Obstacles:	* Service availability
+								* Data lock-in -- possibly mitigated by API standardization
+								* Data confidentiality -- mitigated by encryption prior to storage
+								* Data transfer bottlenecks -- costs ($100-$150 / TB -- unclear where figure comes from; )
+																- SneakerNet is probably not viable here [Automated SneakerNet for smart buildings???]
+			
+			Cloud Storage: Adoption, Practice and Deployment
+				- Definitions: 	* cloud computing = WAN infrastructure
+								* Cloud (with a capital C) = the public data network including the Internet
+				- Provides a good overview of various issues such as security and data verification, performance, inter-cloud portability
+				- Block Systems, File Systems (CIFS, NFS and GFS) and Object Storage				
+
+		Sensor-Cloud
+			A framework of sensor-cloud integration opportunities and challenges
+			System Architecture Directions for Tangible Cloud Computing
+			A design of flexible data channels for sensor-cloud integration
+			Usable, lightweight and secure, architecture and programming interface for integration of Wireless Sensor Network to the Cloud.
+			WhereStore: location-based data storage for mobile devices interacting with the cloud
+			Can We Plug Wireless Sensor Network to Cloud?
+			Challenges in Secure Sensor-Cloud Computing
+			A survey of mobile cloud computing
+			
+	Cloud Storage Gateway
+		General resources
+			CloudStorageSurvey_Avere
+				- make cloud storage appear as local storage
+				- translates cloud storage APIs to file interfaces or storage transport protocols
+				- gateway resides at customer site
+					- can be dedicated appliance/server, virtual appliance/server, or s/w application
+						- features: compression, deduplication, encryption, caching, backup & recovery
+				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost \$50000+)		
+			http://gladinet.blogspot.com/2010/09/how-to-pick-cloud-storage-gateway.html 
+			http://www.cloudswitch.com/page/now-everybody-wants-a-cloud-gateway
+			http://www.cloudswitch.com/blog/category/Cloud%20Gateway%20Series
+			http://www.theregister.co.uk/2011/11/17/snia_cloud/
+			http://www.snia.org/
+			http://searchcloudcomputing.techtarget.com/tip/Securing-data-in-the-cloud 
+			http://www.snia.org/education/tutorials/2011/spring
+			http://searchstorage.techtarget.com/news/1347466/Storage-Explained-Cloud-storage-defined
+			http://www.nasuni.com/blog/28-dirty_secrets_5_weaknesses_of_cloud_storage 
+		Commercial offerings
+			Atmos 
+			Ctera
+			Nirvanix 
+			Citrix
+			http://www.citrix.com/English/ps2/products/product.asp?contentID=2311977
+			http://www.opensourcerack.com/2011/05/25/citrix-netscaler-cloud-gateway-a-product-tour/
+			Gladinet 
+			Nasuni
+			Cloudstore 
+		Open
+			http://openstack.org/
+				http://docs.openstack.org/diablo/openstack-compute/starter/content/ch05s01s02.html 
+			Nimbus Project
+				https://github.com/nimbusproject/nimbus
+			Cumulus
+				http://www.nimbusproject.org	
+				Cumulus_An_Open_Source_Storage_cloud
+			Eucalyptus
+				http://www.cca08.org/papers/Paper32-Daniel-Nurmi.pdf		
+
+	Synchronization Tools
+		General resources
+			Synch comparison chart 
+			File synch alternatives 
+			VCS discussion
+			http://en.wikipedia.org/wiki/Comparison_of_file_synchronization_software
+		
+		Common synch tools
+			rsync
+				tutorial
+				algorithm 
+				examples
+			DeltaCopy (Windows' rsync)		
+			Unison
+				Open Source by Benjamin C. Pierce 
+				Mac, Windows, Linux
+				http://www.stanford.edu/~pgbovine/unison_guide.htm
+				http://www.stanford.edu/~pgbovine/unison-for-your-mom.htm
+				What’s in Unison
+				File Synchronization with Unison
+				
+		Open source online tools
+			SparkleShare 
+				https://github.com/hbons/SparkleShare
+				http://sparkleshare.org/
+				http://www.makeuseof.com/tag/sparkleshare-great-open-source-alternative-dropbox-linux-mac/
+			dvcs-autosync
+				http://gitorious.org/dvcs-autosync
+				explanatory article
+				http://www.mayrhofer.eu.org/dvcs-autosync
+			git-annex
+		
+		
+		Online services
+			symform
+			http://www.symform.com/resilient-storage-architecture.aspx
+				Windows only
+			LiveMesh 
+				http://www.codeproject.com/Articles/37200/Cloud-Based-Source-Control-using-Live-Mesh-and-Git
+			Syncany
+				open-source cloud storage and filesharing application
+				https://blueprints.launchpad.net/syncany/+spec/xmpp-notifications 
+			SpiderOak
+				Free with limited functionality by Spideroak
+				Mac, iPhone, iPad, Windows, Linux, Online, Android
+			Dropbox
+				Free with limited functionality 
+				Mac, iPhone, iPad, Windows, Linux, Online, Android, Blackberry
+			Ubuntu One
+				Free with limited functionality by Canonical Ltd. 
+				Windows, Linux, Online, Android
+			SugarSync
+				Free with limited functionality by SugarSync 
+				Mac, iPhone, iPad, Windows, Win Mobile, Online, Android, S60, Blackberry
+			Wuala
+				Free by LaCie 
+				Mac, iPhone, iPad, Windows, Linux, Online, Android
+			CrashPlan
+				Free with limited functionality by Code42 
+				Mac, Windows, Linux, Online
+			Box.net
+				Free with limited functionality by Box.net
+				iPhone, iPad, Windows, Online, Android, Blackberry
+			Syncplicity
+				Free with limited functionality by Syncplicity
+				Mac, iPhone, Windows, Online
+			TeamDrive
+				Free by TeamDrive Systems GmbH 
+				Mac, Windows, Linux, Online
+			ZumoDrive
+				Free with limited functionality by Zecter Inc.
+				Mac, iPhone, iPad, Windows, Linux, Online, Android
+			Tonido
+				Free by CodeLathe 
+				Mac, iPhone, iPad, Windows, Win Phone 7, Linux, Online, Android, Blackberry
+			Minus
+				Free by Minus Inc 
+				Mac, iPhone, iPad, Windows, Win Phone 7, Linux, Online, Android, Android Tablet, Blackberry  
+			Duplicati
+				Open Source by Kenneth Skovhede, mortenmie, et al 
+				Windows, Linux 
+			 Banckle File Sharing
+				Free by Usman Sarfraz 
+				Mac, iPad, Windows, Online
+			ownCloud
+				Open Source by ownCloud team 
+			Acid Rain
+				Open Source
+				Mac, Windows, Linux, Online 
+			Sharebox
+			lipsync
+				diagram
+			CPISynch 
+				On the scalability of data synchronization protocols for PDAs and mobile devices
+				
+		Personal Cloud servers		
+			Pogoplug
+			Iomega
+				ix2-200 and ix4-200d network storage devices
+
+	(Distributed) File Systems
+		General Resources
+			Cloud-based synchronization of distributed file system hierarchies
+		Systems
+			HekaFS
+			http://git.fedorahosted.org/git/?p=CloudFS.git 
+			Coda
+			GlusterFS
+			RFS
+				RFS_a network file system for mobile devices and the cloud
+		WebDAV 
+		FUSE		
+
+	Cloud storage services
+		general resources
+			Cloud storage survey (unpub.)
+			An automated approach to cloud storage service selection
+			MetaStorage_camera-ready
+			Cloud Storage: Adoption, Practice and Deployment
+				- Best practices
+					* Chosing a provider: redundancy, fail-over, versioning, data back-up, mgmt console, pricing
+					* local storage as well as cloud?
+		Providers
+			Amazon S3
+			Windows Azure
+			AT&T Synaptic Storage
+			Rackspace CloudFile
+			Peer1 CloudOne
+			Nirvanix
+			Mezeo
+			Google Storage
+			traditional FTP
+			WebDav server
+			Pachube
+				RESTful
+				Environment, Datastream and Datapoint model
+				Push and Pull capabilities with ``live'' and ``frozen'' status
+				Supports HTTPS/SSL
+				Authentication is handled using API keys.
+
+
+	Database Replication
+		Unstructured
+			CouchDB
+			MongoDB
+
+	Weak connections
+		weaklyconnectedusers

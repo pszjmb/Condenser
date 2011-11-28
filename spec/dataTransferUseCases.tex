@@ -73,7 +73,7 @@ The following use cases pertain to how Condenser transfers data to the cloud. Fi
 		\textbf{Quality Requirements:} Bandwidth used for log file transfer should be minimised.\\
 		\line(1,0){350}			
 			 
-		\textbf{Handling limited data storage} \\
+		\textbf{Handling limited local data storage} \\
 		\textbf{Participating Actors:} Horizon Partner (HP) and/or Project Participant(PP) \\
 		\textbf{Event Flow:}
 		\begin{enumerate}
@@ -84,3 +84,15 @@ The following use cases pertain to how Condenser transfers data to the cloud. Fi
 		\textbf{Entry Conditions:} Condenser is configured with data handling rules.\\
 		\textbf{Exit Conditions:} Data are compressed, aggregated or deleted to maximise space for new data.\\
 		\line(1,0){350}	
+		
+		\textbf{Handling limited external data storage} \\
+		\textbf{Participating Actors:} Horizon Partner (HP) and/or Project Participant(PP) \\
+		\textbf{Event Flow:}
+		\begin{enumerate}
+\item The HP or PP initiates data transfer from one or more nodes to Condenser.
+\item If external storage capacity (or financial constraints) are exceeded then Condenser will act as if the network connection failed and cease data transfer.
+\item Condenser will notify its administrator of the failure.
+	    \end{enumerate}
+		\textbf{Entry Conditions:} Condenser is configured with data handling rules.\\
+		\textbf{Exit Conditions:} Condenser suspends further data upload until it is unsuspended, and it notifies its administrator of the failure.\\
+		\line(1,0){350}			
