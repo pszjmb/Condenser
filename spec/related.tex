@@ -22,11 +22,14 @@ Provenance
 			acm
 
 Outcomes			
-	Cloud Computing & Sensor Data
-		- Most resources are orientated at the Cloud-level (that is to tsay the back-end data centres) rather than the data input level
-		- "Capacities continue to double each year, while access times are improving at 10 percent per year." - Jim Grey http://queue.acm.org/detail.cfm?id=864078
-		- The Big 4 (Amazon, Microsoft, Google and Rackspace) offer various storage models
-		- According to http://www.broadbandspeedchecker.co.uk/: 31.21 Mb/s download (337068 MB/d ), 13.29 Mb/s upload (143532 MB/d) here at Horizon
+	
+	Cloud Computing And Sensor Data
+		Observations
+			- Most resources are orientated at the Cloud-level (that is to tsay the back-end data centres) rather than the data input level
+			- "Capacities continue to double each year, while access times are improving at 10 percent per year." - Jim Grey http://queue.acm.org/detail.cfm?id=864078
+			- The Big 4 (Amazon, Microsoft, Google and Rackspace) offer various storage models
+			- According to http://www.broadbandspeedchecker.co.uk/: 31.21 Mb/s download (337068 MB/d ), 13.29 Mb/s upload (143532 MB/d) here at Horizon
+		
 		General resources
 			Above the Clouds: A Berkeley View of Cloud Computing
 				- Definitions: 	* cloud = Datacentre h/w + s/w
@@ -43,8 +46,18 @@ Outcomes
 				- Definitions: 	* cloud computing = WAN infrastructure
 								* Cloud (with a capital C) = the public data network including the Internet
 				- Provides a good overview of various issues such as security and data verification, performance, inter-cloud portability
-				- Block Systems, File Systems (CIFS, NFS and GFS) and Object Storage				
+				- Block Systems, File Systems (CIFS, NFS and GFS) and Object Storage
 
+			http://gigaom.com/2011/11/29/when-can-we-stop-talking-about-the-cloud/
+				"If I was explaining either service to my parents, for example, I would try not to use the term “cloud” at all. It wouldn’t really make any sense to them without an explanation, and once I started explaining it — how the cloud is a bunch of servers that Amazon or Google maintains in giant buildings that hold billions of individual files — it would actually make things worse. If I just pointed out that any files placed in a specific folder would automatically show up in other folders on different computers, then they would understand everything they need to know."
+			
+			Cloud growth:
+				http://gigaom.com/cloud/amazon-storing-more-than-449-billion-objects-in-s3/
+				http://gigaom.com/cloud/rackspace-cloud-revenue-keeps-rising-tops-100m/
+			
+			Basic principles of Machine-to-Machine communication and its impact on telecommunications industry
+				http://www.ericsson.com/res/docs/whitepapers/wp-50-billions.pdf
+	
 		Sensor-Cloud
 			Can We Plug Wireless Sensor Network to Cloud?
 				- Raw data vs events
@@ -82,7 +95,7 @@ Outcomes
 			WhereStore: location-based data storage for mobile devices interacting with the cloud
 				%- [A lot of the paper would be useful when considering predicitve storage patterns, however notes about their location prediction have been excluded from this lit revie]
 					% - "Predicting an application's data pattern is one problem, deciding the exact time at which data should be fetched from the cloud is yet another." 
-					% - "a system like WhereStore can use information about current and future Internet access opportunities as well as information about dierent access technologies (e.g. 3G or WiFi) to make decisions about when to communicate with a remote cloud storage service. An intelligent decision may reduce the total power consumption of the device without data access penalties"
+					% - "a system like WhereStore can use information about current and future Internet access opportunities as well as information about different access technologies (e.g. 3G or WiFi) to make decisions about when to communicate with a remote cloud storage service. An intelligent decision may reduce the total power consumption of the device without data access penalties"
 				- Filtered replication
 					- keep data synced b/w set of peers
 						- collections of items (each item containing data and metadata)
@@ -100,9 +113,43 @@ Outcomes
 								- Data accessed through callbacks
 						-location service
 						
-			Challenges in Secure Sensor-Cloud Computing
 			A survey of mobile cloud computing
+				- mobile cloud computing (MCC)
+				- obstacles / MCC advantages
+					performance 
+						battery life / Extending battery lifetime
+						storage / Improving data storage capacity
+						low bandwidth
+					environment
+						heterogeneity
+						scalability / MCC apps can be scaled to meet the unpredictable user demands
+						availability
+					security
+						reliability / Improving reliability (reduces the chance of data and application lost)
+						privacy
+							data integrity / [92] presents energy efficient solution
+							authentication / [93] presents method for secure the data access suitable for mobile environments
+					data access
+						[101] increase the efficiency of accessing data on the cloud is using a local storage
+cache
+							mechanism to manage, and synchronize data between mobile devices and the cloud to deal with changes
+of data on the cloud
+						[102] addresses three main issues as follows: maintaining seamless connection between users and
+clouds, controlling cache consistency, and supporting data privacy
+
+				- Mobile Cloud Computing (MCC) architecture(Fig. 1)
+				- Cloudlets: trusted, resource-rich computer or cluster of computers which is wellconnected
+to the Internet and available for use by nearby mobile devices
 			Usable, lightweight and secure, architecture and programming interface for integration of Wireless Sensor Network to the Cloud.
+			An autonomic cloud environment for hosting ECG data analysis services
+			cloud4home
+			Pocket Cloudlets [101]
+			
+	Cloud experiences
+			Adaptive Rate Stream Processing for Smart Grid Applications on Clouds
+			Magellan: experiences from a science cloud
+
+		
 			
 	Cloud Storage Gateway
 		General resources
@@ -112,7 +159,7 @@ Outcomes
 				- gateway resides at customer site
 					- can be dedicated appliance/server, virtual appliance/server, or s/w application
 						- features: compression, deduplication, encryption, caching, backup & recovery
-				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost $50000+)		
+				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost \$50000+)		
 			Cloud4Home— Enhancing Data Services with @Home Clouds
 			http://gladinet.blogspot.com/2010/09/how-to-pick-cloud-storage-gateway.html 
 			http://www.cloudswitch.com/page/now-everybody-wants-a-cloud-gateway
@@ -139,6 +186,7 @@ Outcomes
 			Nimbus Project
 				https://github.com/nimbusproject/nimbus
 			Cumulus
+				Cumulus: an open source storage cloud for science
 				http://www.nimbusproject.org	
 				Cumulus_An_Open_Source_Storage_cloud
 			Eucalyptus
@@ -254,7 +302,7 @@ Outcomes
 			Coda
 			GlusterFS
 			RFS
-				RFS_a network file system for mobile devices and the cloud
+				RFS_a network file system for mobile devices and the cloud [102]
 		WebDAV 
 		FUSE		
 
@@ -296,3 +344,17 @@ Outcomes
 		Peer-to-peer Data Replication Meets Delay Tolerant Networking
 	Deduplication
 		Building a high-performance deduplication system
+	
+	Cloud data security
+		Challenges in Secure Sensor-Cloud Computing
+		http://gigaom.com/cloud/the-cloud-meets-the-law-where-wikileaks-went-wrong/
+		Structured Encryption and Controlled Disclosure
+		Computing Arbitrary Functions of Encrypted Data
+		Every Cloud has An Encrypted Lining: The Effectiveness of Cryptography in Cloud Computing	
+		Fully homomorphic encryption using ideal lattices
+		Distributing data for secure database services
+		Addressing cloud computing security issues
+		Silverline toward data confidentiality in storage-intensive cloud applications
+		[92] Energy-efficient incremental integrity for securing storage in mobile cloud computing
+		Lightweight and Compromise Resilient Storage Outsourcing with Distributed Secure Accessibility in Mobile Cloud Computing
+		[93] Authentication in the clouds: a framework and its application to mobile users
