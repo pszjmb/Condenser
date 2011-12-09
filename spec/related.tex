@@ -1,4 +1,4 @@
-Cloud Storage Synchronization Literature Search
+\section{Cloud Storage Synchronization Literature Search}
 
 Provenance
 	JMB
@@ -7,7 +7,7 @@ Provenance
 		- Interested in determining current solutions for storing sensor data in the Cloud
 		- required understanding of:
 			* general cloud computing ideas and terminology
-			* specific connections between Cloud Computing & Sensors
+			* specific connections between Cloud Computing and Sensors
 			* cloud (and general file/data) synchronization options
 			* database replication
 			* Weak n/w connection handling
@@ -34,7 +34,7 @@ Outcomes
 			Above the Clouds: A Berkeley View of Cloud Computing
 				- Definitions: 	* cloud = Datacentre h/w + s/w
 								* SaaS = Services run on top of datacentre
-				- Opportunities:	* The cloud will become dominant because it is the most convinient way to store automated (large) datasets from sensors and users -- services can then process, analyse and mashup the highly available data 
+				- Opportunities:	* The cloud will become dominant because it is the most convenient way to store automated (large) datasets from sensors and users -- services can then process, analyse and mashup the highly available data 
 									* infinite capacity on-demand
 				- Obstacles:	* Service availability
 								* Data lock-in -- possibly mitigated by API standardization
@@ -48,8 +48,9 @@ Outcomes
 				- Provides a good overview of various issues such as security and data verification, performance, inter-cloud portability
 				- Block Systems, File Systems (CIFS, NFS and GFS) and Object Storage
 
+
 			http://gigaom.com/2011/11/29/when-can-we-stop-talking-about-the-cloud/
-				"If I was explaining either service to my parents, for example, I would try not to use the term “cloud” at all. It wouldn’t really make any sense to them without an explanation, and once I started explaining it — how the cloud is a bunch of servers that Amazon or Google maintains in giant buildings that hold billions of individual files — it would actually make things worse. If I just pointed out that any files placed in a specific folder would automatically show up in other folders on different computers, then they would understand everything they need to know."
+				``If I was explaining either service to my parents, for example, I would try not to use the term ``cloud'' at all. It wouldn''t really make any sense to them without an explanation, and once I started explaining it -- how the cloud is a bunch of servers that Amazon or Google maintains in giant buildings that hold billions of individual files -- it would actually make things worse. If I just pointed out that any files placed in a specific folder would automatically show up in other folders on different computers, then they would understand everything they need to know.''
 			
 			Cloud growth:
 				http://gigaom.com/cloud/amazon-storing-more-than-449-billion-objects-in-s3/
@@ -63,8 +64,8 @@ Outcomes
 				- Raw data vs events
 					simple or complex events
 				- Proposed platform architecture (unclear where platform components live)
-					[Of interest to this work (other componenets are downstream to sync data)]
-					* WSN virtualiseation manager
+					[Of interest to this work (other components are downstream to sync data)]
+					* WSN virtualisation manager
 						- adapter provides raw byte stream from WSN to gateway which gateway enques as a raw packet in a buffer
 						- Data processors affect enqueued packets
 						- Command interpreter reprograms sensors via the gateway
@@ -130,8 +131,6 @@ Outcomes
 							data integrity / [92] presents energy efficient solution
 							authentication / [93] presents method for secure the data access suitable for mobile environments
 					data access
-						[101] increase the efficiency of accessing data on the cloud is using a local storage
-cache
 							mechanism to manage, and synchronize data between mobile devices and the cloud to deal with changes
 of data on the cloud
 						[102] addresses three main issues as follows: maintaining seamless connection between users and
@@ -141,35 +140,139 @@ clouds, controlling cache consistency, and supporting data privacy
 				- Cloudlets: trusted, resource-rich computer or cluster of computers which is wellconnected
 to the Internet and available for use by nearby mobile devices
 			Usable, lightweight and secure, architecture and programming interface for integration of Wireless Sensor Network to the Cloud.
+				*** The following notes are direct copies of text:
+				- The integration of wireless sensor networks, aggregated with sensor data but with limited processing power, with a resource-rich cloud computing infrastructure makes the integration beneficial in terms of i) scalability of data storage, ii) scalability of processing power for data mining and analysis, iii) access to the processing and storage infrastructure anywhere in the world, iv) resource optimization, v) and using pricing as one more criteria for the IT infrastructure.
+				- Intortus, to enable this exploration of integrating sensor networks to the emerging cloud computing paradigm.
+				- Intortus wherein sensor nodes collect data and send data to a gateway. The gateway aggregates data from the Wireless Sensor Network (WSN).
+				- gateway in Intortus uses the same hardware as the sensor node (a wall powered mote)
+				- web API with defined methods for accessing data
+				- Intortus sends data from the gateway to the cloud securely using message authentication and encryption
+				- user authentication data access policy and gateway authentication
+				- Intortus currently, deals with a single application and is a framework dealing with solely data storage and communication to and fro the cloud in a secure manner
+				- Intortus system consists of a cloud service that will be used to add data from the gateway to the cloud data store
+				- Intortus provides the above first two services:
+					1. Store data from the WSNs securely.
+					2. Make this data available to users for viewing through web pages, to smart phone applications which will connect to Intortus and to other programs which will connect directly to Intortus
+					3. Get input from users via web pages, smart phone apps or other programs to control the applications in the WSNs.
+					4. Allow applications to be loaded from desktop computers through the cloud service to the WSN gateways, which will then push them onto individual motes in the WSN.
+				- eMotes are loaded with software to collect, encode, and transmit data through wireless communication channels to the gateway
+				- gateway is responsible to receive data from sensors and to dispatch it to be appropriate storage service hosted on cloud. The gateway structures data in the form of an XML and sends it over to the cloud. The data is sent to the cloud using web API method calls. The web API is created from a web service which is hosted in the cloud for interoperability from .NET Micro framework at the gateway to Java in the cloud.
+				- data storage is Google App Engine
+				- Intortus data storage API, used to store data from data aggregated at the gateway, creates a relational interface to the key value data structure so that the application providers need no knowledge of the Google App Engine data store structure while inserting data to the cloud. Data in the cloud is stored in an encrypted form for security purposes. Data can be accessed by an API which is a REST
+				- Security in Intortus includes message authentication and encryption, data access, user authentication and gateway authentication
+				- Challenges:
+					* limited sensor node hardware resources make it hard to implement a security platform that incorporates the security requirements of Intortus.
 			An autonomic cloud environment for hosting ECG data analysis services
-			cloud4home
-			Pocket Cloudlets [101]
-			
+				- Of little interest
+			Cloud4Home-- Enhancing Data Services with AtHome Clouds
+				*** The following notes are direct copies of text (unless prefaced by ***):
+				- current 'thin client' models in which end devices 'simply access the Internet' can suffer from high and variable delays in accessing and using remote resources
+				- they are subject to challenges when devices must operate in disconnected
+				- should leverage the lower costs of using local resources and exploiting locally available state, avoid potential issues with data privacy or security for cloud-based operation
+				- should exploit Internet resources when those are not encumbered by undue costs like high latency or undue communication overheads
+				- data services explored in the paper can tap into the aggregate resources offered by remote clouds, and they can leverage 'nearby' devices in home or office settings. The outcome is quality in service delivery that exceeds that of the pure 'in the cloud' or 'at the edge' service realizations.
+				*** not really cloud is it -- data centre oriented...
+				- focus n services for storage, access, and manipulation of data for the home environment and when doing so, we leverage the VStore++
+					- virtualized object storage system that abstracts from an application where the objects it accesses are stored
+					- VStore++ will track resource availability in order to direct requests to appropriate destinations
+based on their needs and/or resource availability, using a global indexing and monitoring infrastructure maintained
+during its operation
+					- Cloud4Home comprised of dynamically varying sets of devices that cooperate to provide end users with seamless storage, access, and data manipulation services, including interactions with remote,
+publically available cloud platforms
+					- vStore++ uses a standard file system to represent objects, using a one-to-one mapping
+of objects to files. In addition to object fetch and store operations, it supports an explicit process operation, which
+permits object manipulation functions to be associated with the object access								*** overkill for WSN???
+					- metadata layer provides object lookup and transparent access to storage and services distributed across nodes in the home or remote clouds
+					 - metadata management layer is built as a distributed key-value store on top of a peer-to-peer overlay across all control domains in the home cloud
+					 - One or more nodes in the home cloud support a public cloud interface module, responsible for routing all remote cloud interactions
+			Towards Reliable, Performant Workflows for Streaming-Applications on Cloud Platforms
+			*** The following notes are direct copies of text (unless prefaced by ***):
+				- propose and present a scientific workflow framework that supports streams as first-class data, and is optimized for performant and reliable execution across desktop and Cloud platforms
+				- combine streaming data arriving from sensors with historic data available in file archives along with structured collections of weather forecast data that help the large scale computational model make an energy use prediction in near real time
+				- workflow architecture that natively supports the three common data models found in science and engineering applications -- files, structured collections and data streams -- with the ability to seamlessly transition from one data model to another
+				- logical stream abstractions have to be more robust than simple TCP sockets, given the unreliability and opaqueness introduced by operating in a distributed environment across desktop and Cloud with different characteristics from a typical local area network. Reliability of VMs hosting workflow tasks
+is another concern to be addressed. Too, there has to be intelligence to avoid costly (both in time and money) duplicate movement of the same logical stream
+				- Streams are a continuous series of binary data
+				- transient unless mapped to another data model
+				- In the future, Cloud providers may provide such streams as IaaS abstraction
+				- registry service that maintains a list of known streams and the endpoints where particular
+streams are provided
+				- fault resistance: (1) transient or permanent loss of physical network, and (2) loss of virtual machines in the Cloud or services running on them.
+				
 	Cloud experiences
 			Adaptive Rate Stream Processing for Smart Grid Applications on Clouds
-			Magellan: experiences from a science cloud
-
-		
+				- adaptive rate control to throttle the rate of generation of power events by smart meters, which meets accuracy requirements of smart grid applications while consuming 50\% lesser bandwidth resources in the Cloud
+				- power events generated at a peak rate of 1 KB/min from 1.4 M consumers in the Los Angeles Smart Grid will require 2 TB/day of streaming data to be processed and analyzed at an average cumulative bandwidth of ~200Mbps
+				- need for an adaptive stream rate control mechanism for generating power usage events
+				- use the difference between the available power capacity at the utility and the current cumulative power usage by the consumers as our throttle function
+				- disadvantages of static publishing rate:
+					- setting too high a rate at which power events are published will cause excess resources (bandwidth, compute VMs for stream processing) to be utilized
+					- setting too low a static rate at which power events are published can cause the utility to miss detecting a breach of a power usage threshold during peak load periods
+				- adaptation logic (throttle)
+					- as the total power usage within the utility approaches total available capacity, power usage events are required more frequently to detect/forecast a peak load event with low latency.
+				- As future work, we plan to evaluate the scalability of the stream processing system with increasing number of VM instances, with the eventual goal of scaling up to 1.4 million smart meter streams that is expected in the Los Angeles Smart Grid. Both throughput and latency of the pipeline need to be measured as the stream rates adapt. Additional factors like availability of compute resources (\# of VMs), throughput of the stream processing system, and cost trade-off between Cloud resource usage and power conserved can be incorporated into the throttle policy.		
 			
 	Cloud Storage Gateway
 		General resources
-			CloudStorageSurvey_Avere
+			wikipedia.org
+				A cloud storage gateway is a network appliance or server which resides at the customer premises and translates cloud storage APIs such as SOAP or REST to block-based storage protocols such as iSCSI or Fibre Channel or file-based interfaces such as NFS or CIFS.
+			
+			CloudStorageSurvey--Avere
 				- make cloud storage appear as local storage
 				- translates cloud storage APIs to file interfaces or storage transport protocols
 				- gateway resides at customer site
 					- can be dedicated appliance/server, virtual appliance/server, or s/w application
-						- features: compression, deduplication, encryption, caching, backup & recovery
+						- features: compression, deduplication, encryption, caching, backup and recovery
 				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost \$50000+)		
-			Cloud4Home— Enhancing Data Services with @Home Clouds
+			
 			http://gladinet.blogspot.com/2010/09/how-to-pick-cloud-storage-gateway.html 
+				- pick a cloud storage gateway, there are several questions:
+					- 3 forms: s/w, virt. applicance, physical
+					- which supported cloud storage providers
+					- how to store data on cloud: 
+						- block level
+						- file level
+					- what encryption/compression algo used
+					
 			http://www.cloudswitch.com/page/now-everybody-wants-a-cloud-gateway
+				- gateway simplifies the integration and management of cloud resources so people can get on with using the cloud rather than struggling to make it work
+				
 			http://www.cloudswitch.com/blog/category/Cloud%20Gateway%20Series
-			http://www.theregister.co.uk/2011/11/17/snia_cloud/
-			http://www.snia.org/
-			http://searchcloudcomputing.techtarget.com/tip/Securing-data-in-the-cloud 
-			http://www.snia.org/education/tutorials/2011/spring
-			http://searchstorage.techtarget.com/news/1347466/Storage-Explained-Cloud-storage-defined
-			http://www.nasuni.com/blog/28-dirty_secrets_5_weaknesses_of_cloud_storage 
+				- a well-designed cloud gateway needs to:
+					- guarantee security
+					- gateway should allow users and administrators to monitor and manage applications running in a cloud as if they were running locally, using existing tools and polices in a single, integrated environment
+					- protect roles and access
+					
+www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage  
+				- gateway or device (virtual or physical) that needs to be installed at your site
+				- beenfits:
+					- improved performance
+					- security
+					- compression
+					- dedup
+					- WAN optimization
+					- cache data
+				- limitations
+					- internet connection (can be mitigated usinga bulk data migration service)
+					- Caches are not perfect and sometimes you will get read and write misses 
+						- write miss: the space you need to write to in the cache is temporarily full and has not been freed up by offloading/sending data to the cloud
+							-  ability to feed data to the appliance most likely is significantly faster than your Internet connection 
+					- You can't get at your data without the appliance because the appliance adds a level of security
+				- cloud storage gateways change the data written to them
+					- compression, dedeup, encrypted, chunked for parallelism
+					
+			http://www.nasuni.com/blog/32blocksvsfileswhichapproachisbetterforcloud
+				- block-based gateway
+					- gateway works directly with blocks, the 512-byte fundamental units of storage
+					- raw chunks of storage on a drive
+					- Applications assume that blocks exist in local, fast storage
+						- cloud: connections between the applications and the storage can become strained (latency issues)
+					- Intelligent caching is really, really difficult 
+					- Block-based gateways restore at the volume level, essentially restoring the blocks in a volume to a previous point in time
+				- file-based gateway
+					- Files provide a clear picture of the relationships among the blocks that support them
+					- File-based gateways provide restore capabilities at the file, directory, or complete file system level
+					- best for unstructured data
 		Commercial offerings
 			Atmos 
 			Ctera
@@ -188,7 +291,6 @@ to the Internet and available for use by nearby mobile devices
 			Cumulus
 				Cumulus: an open source storage cloud for science
 				http://www.nimbusproject.org	
-				Cumulus_An_Open_Source_Storage_cloud
 			Eucalyptus
 				http://www.cca08.org/papers/Paper32-Daniel-Nurmi.pdf		
 
@@ -197,7 +299,7 @@ to the Internet and available for use by nearby mobile devices
 			Synch comparison chart 
 			File synch alternatives 
 			VCS discussion
-			http://en.wikipedia.org/wiki/Comparison_of_file_synchronization_software
+			en.wikipedia.org/wiki/Comparisonoffilesynchronizationsoftware
 			Cimbiosys: A platform for content-based partial replication
 		
 		Common synch tools
@@ -209,9 +311,9 @@ to the Internet and available for use by nearby mobile devices
 			Unison
 				Open Source by Benjamin C. Pierce 
 				Mac, Windows, Linux
-				http://www.stanford.edu/~pgbovine/unison_guide.htm
+				http://www.stanford.edu/~pgbovine/unisonguide.htm
 				http://www.stanford.edu/~pgbovine/unison-for-your-mom.htm
-				What’s in Unison
+				What's in Unison
 				File Synchronization with Unison
 				
 		Open source online tools
@@ -302,7 +404,7 @@ to the Internet and available for use by nearby mobile devices
 			Coda
 			GlusterFS
 			RFS
-				RFS_a network file system for mobile devices and the cloud [102]
+				RFSa network file system for mobile devices and the cloud [102]
 		WebDAV 
 		FUSE		
 
@@ -310,7 +412,7 @@ to the Internet and available for use by nearby mobile devices
 		general resources
 			Cloud storage survey (unpub.)
 			An automated approach to cloud storage service selection
-			MetaStorage_camera-ready
+			MetaStoragecamera-ready
 			Cloud Storage: Adoption, Practice and Deployment
 				- Best practices
 					* Chosing a provider: redundancy, fail-over, versioning, data back-up, mgmt console, pricing
@@ -318,7 +420,7 @@ to the Internet and available for use by nearby mobile devices
 		Providers
 			Amazon S3
 			Windows Azure
-			AT&T Synaptic Storage
+			ATandT Synaptic Storage
 			Rackspace CloudFile
 			Peer1 CloudOne
 			Nirvanix
@@ -357,4 +459,4 @@ to the Internet and available for use by nearby mobile devices
 		Silverline toward data confidentiality in storage-intensive cloud applications
 		[92] Energy-efficient incremental integrity for securing storage in mobile cloud computing
 		Lightweight and Compromise Resilient Storage Outsourcing with Distributed Secure Accessibility in Mobile Cloud Computing
-		[93] Authentication in the clouds: a framework and its application to mobile users
+		[93] Authentication in the clouds: a framework and its application to mobile users				
