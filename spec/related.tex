@@ -26,7 +26,7 @@ Outcomes
 	Cloud Computing And Sensor Data
 		Observations
 			- Most resources are orientated at the Cloud-level (that is to tsay the back-end data centres) rather than the data input level
-			- "Capacities continue to double each year, while access times are improving at 10 percent per year." - Jim Grey http://queue.acm.org/detail.cfm?id=864078
+			- ``Capacities continue to double each year, while access times are improving at 10 percent per year.'' - Jim Grey http://queue.acm.org/detail.cfm?id=864078
 			- The Big 4 (Amazon, Microsoft, Google and Rackspace) offer various storage models
 			- According to http://www.broadbandspeedchecker.co.uk/: 31.21 Mb/s download (337068 MB/d ), 13.29 Mb/s upload (143532 MB/d) here at Horizon
 		
@@ -274,124 +274,336 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 					- File-based gateways provide restore capabilities at the file, directory, or complete file system level
 					- best for unstructured data
 		Commercial offerings
-			Atmos 
 			Ctera
-			Nirvanix 
-			Citrix
-			http://www.citrix.com/English/ps2/products/product.asp?contentID=2311977
-			http://www.opensourcerack.com/2011/05/25/citrix-netscaler-cloud-gateway-a-product-tour/
-			Gladinet 
+				- cloud storage gateways that provides shared storage, cloud backup, folder synchronization and remote access in single devices
+					- only uploads diffs/changed data
+					- de-duplication
+					- user bandwidth throttling (time based or constant)
+					- 128-bit SSL
+					- data encrypted using 256-bit AES & fingerprinted by 160 bit SHA-1
+					- Restore all or individual files
+					- Rules-based CIFS, WebDAV and rsync based sync
+					- FTP
+					- Dashboard
+						- Resource utilization
+						- Event logs (system, access, backup, sync, audit)
+						- Backup schedules
+					- Email alerts
+					- Automatic updates
+					- Config backup/restore
+				- rack mounted and plug form factors
+				- remote centralised monitoring/management through a portal (SaaS or installed software)
 			Nasuni
-			Cloudstore 
+				- Nasuni Filer, a storage controller that runs in a datacenter as a hardware appliance or a virtual appliance
+					- primary storage
+					- built-in backup
+					- offsite backup
+					- all data and metadata is stored in the cache
+					- cache snapshots
+						- each file is encrypted, compressed and backedup to the Nasuni Service
+					- cache management removes rarely re-used docs to respect the cache capacity
+				- portal provides
+					- volume & cache metrics
+					- alerts/notifications
+					- remote file accss
+					- control file sharing in the network
+					- restore from snapshot
+			Citrix
+			http://www.opensourcerack.com/2011/05/25/citrix-netscaler-cloud-gateway-a-product-tour/
+				- gateway to provision application access to users by administrators
+			Gladinet 
+				- Windows clients
+				- Cloud server (http://gladinet.blogspot.com/2011/10/introducing-gladinet-cloud-server.html)
+					- on premise gateway
+					- file server that allows you to mount different cloud storage services such as Amazon S3 (default), Windows Azure, Google Storage, EMC Atmos into a Windows File Server
+					- Map Drive to the Attached Cloud Storage Folder
+					- Cache 
+					- Connected to account
+					- Mount service accounts (such as Amazon S3)
+					- Active directory integration
+				- Cloud for teams service
+			Atmos 
+				http://www.emc.com/collateral/software/white-papers/h9505-emc-atmos-archit-wp.pdf
+				- store, manage, and protect globally distributed, unstructured content at scale
+				Intel cloud builders guide
+				http://www.emc.com/collateral/software/data-sheet/h5770-atmos-ds.pdf
 		Open
 			http://openstack.org/
-				http://docs.openstack.org/diablo/openstack-compute/starter/content/ch05s01s02.html 
+				- backend oriented (S3 competitor)
 			Nimbus Project
 				https://github.com/nimbusproject/nimbus
-			Cumulus
-				Cumulus: an open source storage cloud for science
 				http://www.nimbusproject.org	
+					- cloud computing for science
+					- allows a client to lease remote resources by deploying virtual machines (VMs) on those resources and configuring them to represent an environment desired by the user					
+				Cumulus
+					Cumulus: an open source storage cloud for science
+						- storage cloud implementation
+						- compatible with the Amazon Web Services S3 REST API
+						- quota management
+						- used against many existing clients (boto, s3cmd, jets3t, etc)
+						- open source implementation of the Amazon S3 REST AP
+						- configure Cumulus with existing systems such as GPFS, PVFS and HDFS, in order to provide the desired reliability, availability or performance trade-offs
+						- upload data to the cloud, monitor its status, and download it from the storage cloud as needed.
+						- provides an image store for Nimbus compute clouds
+						- S3 interface allows clients to write, read, and delete objects or organize them into buckets
+						- Authentication mechanisms, based on request signature by symmetric key
+						- authorization database
+						- Redirection module used to handle scalability
+						- implemented in python
+						- the concept of a storage cloud is a fusion between data transfer and storage management
 			Eucalyptus
 				http://www.cca08.org/papers/Paper32-Daniel-Nurmi.pdf		
-
+					- opensource software framework for cloud computing that implements IaaS
+			
+			JetS3t
+				http://jets3t.s3.amazonaws.com/index.html
+				- free, open-source Java toolkit and application suite for Amazon Simple Storage Service (Amazon S3), Amazon CloudFront content delivery network, and Google Storage for Developers
+				- 5 applications:
+					- Cockpit: graphical application for transferring files, viewing and managing the contents of an Amazon S3 or Google Storage account
+					- Synchronize: command-line application for synchronizing directories on your computer with an Amazon S3 or Google Storage account
+						- Files are copied to/from the Amazon S3 or Google Storage service
+						- by default, only new or changed files are transferred
+						- synchronize.properties file
+							- accesskey and secretkey which define AWS access credentials
+							- upload.max-part-size
+								- files larger than this value will be split into smaller parts no larger than the value and uploaded as Multipart Uploads
+							- upload.ignoreMissingPaths
+								- Synchronize will perform an upload despite missing or unreadable source files
+							- files can be gzipped or encrypted during synchronization
+							- upload.metadata
+								-  Custom metadata to apply when uploading new files to S3
+						- no action option to generate a report of what will happen
+						- force sync when files are up-to-date
+					- Gatekeeper: servlet that acts as an authorization service running on a Service Provider's server to mediate access to S3 accounts
+					- CockpitLite: graphical application that Service Providers with S3 accounts may provide to clients or customers without S3 accounts
+					- Uploader: graphical application that Service Providers with S3 accounts may provide to clients or customers without S3 accounts
+					
+		s3cmd
+			http://s3tools.org/s3cmd
+				- command line tool for uploading, retrieving and managing data in Amazon S3
+				- conditional/unconditional transfer
+				- http and https
+				- GPG encryption
+				
 	Synchronization Tools
 		General resources
 			Synch comparison chart 
-			File synch alternatives 
-			VCS discussion
-			en.wikipedia.org/wiki/Comparisonoffilesynchronizationsoftware
-			Cimbiosys: A platform for content-based partial replication
+				en.wikipedia.org/wiki/Comparisonoffilesynchronizationsoftware
 		
 		Common synch tools
 			rsync
-				tutorial
-				algorithm 
-				examples
-			DeltaCopy (Windows' rsync)		
+				- invented by Andrew Tridgell
+				- first announced on 19 June 1996.[1] Rsync 3.0 was released on 1 March 2008
+				- requires an rsync server running rsync daemon
+				- algorithm
+					- synchronizes files and directories from one location to another while minimizing data transfer using delta encoding
+					
+				- application
+					- standard Linux utility
+					- ported to Windows (via Cygwin), Mac OS
+					- rsync is capable of limiting the bandwidth consumed during a transfer
+					- supports compression and decompression
+					- SSH
+			DeltaCopy
+				- open source Windows' wrapper of rsync		
+				- GPL 3
+				
 			Unison
-				Open Source by Benjamin C. Pierce 
-				Mac, Windows, Linux
+				- Open Source by Benjamin C. Pierce 
+				- Mac, Windows, Linux
 				http://www.stanford.edu/~pgbovine/unisonguide.htm
-				http://www.stanford.edu/~pgbovine/unison-for-your-mom.htm
+					- batch option
+					- ssh
 				What's in Unison
 				File Synchronization with Unison
+					- two-way rsync with a bit of revision control mixed in
+					- uses the rsync algorithm to keep network traffic down and should be tunneled through SSH over untrusted networks
+					- Unison is programmed in OCaml
+				- Own tests
+					- Unison will not sync a file currently being written to
+					
+			Synkron
+				- written in C++ and uses the Qt4 libraries
+				- GPL v2
+				- multiplatform 
+				- synchronising multiple folders at the same time
+				- can sync subfolders
+				- file exclusions maintained in a blacklist; filters
+				- scheduler
+				- restore files overwritten during sync
+				
+			DirSync Pro 
+				- GPL3
+				- Java (JRE 1.6.0 and higher.)
+				- Bi-directional (Two way) and mono-directional (One way) synchronization mode
+				- Option to synchonise subdirectories recursively
+				- Synchronizes files/folders any file system
+				- handling time-stamps
+				- Schedule Engine
+				- gui and create a command line and save it to a batch file
+				- logging/reporting facilities
+				- no encryption
 				
 		Open source online tools
 			SparkleShare 
+				- opensource alternative to Dropbox
 				https://github.com/hbons/SparkleShare
 				http://sparkleshare.org/
+					- Sa collaboration and sharing tool 
+					- linux, mac, android
+					- Documents synchronised to all peers when changes are made
+					- notifications when someone has made a change
+					- have as many projects as you'd like
+					- use as much space as you'd like
+					- run on as many hosts as you'd like
+					- uses the GIT system as its backbone
+					- store files on own Git server (SSH), Gitub, Gitorious
 				http://www.makeuseof.com/tag/sparkleshare-great-open-source-alternative-dropbox-linux-mac/
+				
 			dvcs-autosync
 				http://gitorious.org/dvcs-autosync
-				explanatory article
-				http://www.mayrhofer.eu.org/dvcs-autosync
-			git-annex
+				explanatory article: http://www.mayrhofer.eu.org/dvcs-autosync
+					- open source replacement for Dropbox/Wuala/Box.net/etc
+					- based on distributed version control systems (DVCS)
+					- Git is is being tested most thoroughly as the backend storage, but other DVCS such as Mercurial are also supported
+					- A single Python script monitors the configured directory for live changes, commits these changes to the DVCS (such as git) and synchronizes with other instances using XMPP messages
+					- linux only (since it relies on inotify)
+					
+			Syncany
+				- open-source dropbox alternative
+				- encrypts the files locally
+				- plug-in based storage system supporting FTP, Amazon S3, Google Storage, Rackspace Cloud Files, WebDAV, Picassa, Box.net
+				- Currently immature (alpha not yet released -- Windows & MAC versions are even further behind)
 		
 		
 		Online services
-			symform
-			http://www.symform.com/resilient-storage-architecture.aspx
-				Windows only
-			LiveMesh 
-				http://www.codeproject.com/Articles/37200/Cloud-Based-Source-Control-using-Live-Mesh-and-Git
-			Syncany
-				open-source cloud storage and filesharing application
-				https://blueprints.launchpad.net/syncany/+spec/xmpp-notifications 
+			Windows only
+				symform
+				http://www.symform.com/resilient-storage-architecture.aspx
+					Windows only
+				LiveMesh 
+					http://www.codeproject.com/Articles/37200/Cloud-Based-Source-Control-using-Live-Mesh-and-Git
+			
 			SpiderOak
 				Free with limited functionality by Spideroak
 				Mac, iPhone, iPad, Windows, Linux, Online, Android
+				- zero-knowledge privacy approach 
+				- SpiderOak operates its own hardware and data centers without outsourcing
+				- backup, sync, share
+				- SpiderOak keeps historical versions of every file
+				- 2048 bit RSA and 256 bit AES
+				- \$10/mo/100 GB
+				
 			Dropbox
 				Free with limited functionality 
 				Mac, iPhone, iPad, Windows, Linux, Online, Android, Blackberry
+				- Dropbox transfers just the parts of a file that change
+				- Very common
+				- Manually set bandwidth limits
+				- Sharing
+				- \$10 / month/50GB; \$20 / month/100GB; 
+				- Secure Sockets Layer (SSL) and AES-256 bit encryption
+				
 			Ubuntu One
 				Free with limited functionality by Canonical Ltd. 
-				Windows, Linux, Online, Android
+				Windows, Linux, Online, Android, iPhone
+				\$3/mo/20GB
+				- Ubuntu One's data storage is simply a set of publically accessible CouchDBs.
+				
 			SugarSync
 				Free with limited functionality by SugarSync 
 				Mac, iPhone, iPad, Windows, Win Mobile, Online, Android, S60, Blackberry
+				- backup any folder
+				- versioning
+				-real-time upload of changes
+				- no file size limits
+				- business plans
+				
 			Wuala
 				Free by LaCie 
 				Mac, iPhone, iPad, Windows, Linux, Online, Android
+				- encrypts the data on your computer before it is uploaded
+				- sync across multiple computers
+				- share
+				- Business and personal licenses
+					- Business: 100 GB for 5 users - Eur 279 /year
+					
 			CrashPlan
 				Free with limited functionality by Code42 
 				Mac, Windows, Linux, Online
+				- plans per computer or per GB
+				
 			Box.net
 				Free with limited functionality by Box.net
 				iPhone, iPad, Windows, Online, Android, Blackberry
+				- personal, business and enterprise pricing
+					- business: \$15/user/month - 1TB; 2GB file limit
+					- Enterprise: \$? unlimited storage; 2 GB file limit
+				- file versioning
+				- comments and discussions
+				- tasks
+				- full text search
 			Syncplicity
 				Free with limited functionality by Syncplicity
 				Mac, iPhone, Windows, Online
+				- personal edition: \$15/mo/50GB
+				- Business edition: \$45/mo/unlimited storage
+				- no file size limit
 			TeamDrive
 				Free by TeamDrive Systems GmbH 
 				Mac, Windows, Linux, Online
+				- store on their TeamDrive cloud, your own server, or WebDAV servers
+				
 			ZumoDrive
 				Free with limited functionality by Zecter Inc.
 				Mac, iPhone, iPad, Windows, Linux, Online, Android
+				- 10 GB \$2.99 / month; 25 GB \$6.99 / month; 50 GB \$9.99 / month; 100 GB \$19.99 / month ; 200 GB \$37.99 / month ; 500 GB 	\$79.99 / month
+				
 			Tonido
 				Free by CodeLathe 
 				Mac, iPhone, iPad, Windows, Win Phone 7, Linux, Online, Android, Blackberry
+				- personal cloud software
+				- make files and media in that computer available anywhere 
+				- remotely access or share your music, photos, calendar, files, and more from any computer or mobile phone
+				- TonidoPlug
+					- Connect your TonidoPlug to your router, then connect any external USB hard drive to your plug to access your files, music and media stored in that hard drive from anywhere via any browser.
 			Minus
 				Free by Minus Inc 
 				Mac, iPhone, iPad, Windows, Win Phone 7, Linux, Online, Android, Android Tablet, Blackberry  
+				- drag and drop
+				
 			Duplicati
 				Open Source by Kenneth Skovhede, mortenmie, et al 
 				Windows, Linux 
-			 Banckle File Sharing
-				Free by Usman Sarfraz 
-				Mac, iPad, Windows, Online
-			ownCloud
-				Open Source by ownCloud team 
+				- c#
+				LGPL
+				- storing the initial copy and then differentials to go from the initial version to the current
+				- works with a number of different backends, eg. FTP, WEBDAV and S3, Rackspace Cloud File
+				- built-in AES-256 encryption and backups can be signed using GNU Privacy Guard
+				- built-in scheduler
+				command-line client
+				
 			Acid Rain
 				Open Source
 				Mac, Windows, Linux, Online 
+				- uses Mercurial 
+					- run own server or use a Mercurial hosting service
+				- Acid Rain Server is a Linux distribution based on Open Suse 11.3
 			Sharebox
+				- immature (in development)
+				- a filesystem that will synchronize arbitrary data between several machines
+				- developed in c
+				- storage through git-annex
 			lipsync
-				diagram
-			CPISynch 
-				On the scalability of data synchronization protocols for PDAs and mobile devices
+				- a lightweight commandline service that securely syncronizes your data 
+				- linux only (server and client)
+				- openSSH
+				- rSync-based
 				
 		Personal Cloud servers		
 			Pogoplug
+				- £40
+				- S/w for PC, Mac, Linux, iPhone, iPad, Android
 			Iomega
 				ix2-200 and ix4-200d network storage devices
 
