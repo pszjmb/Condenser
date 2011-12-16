@@ -1,190 +1,57 @@
 \section{Cloud Storage Synchronization Literature Search}
+Ubiquitous digital technologies have the potential to capture knowledge about how we behave and about how the effect that the environment and the systems around us have on us. Key enabling technologies have emerged in the form of sensor networks that provide the capabilities to capture, store, transmit and analyse data about ourselves and the world. Such sensor networks have been used for various applications such as environmental monitoring, subject tracking, health care, and intelligent buildings.
 
-Provenance
-	JMB
-	Nov. 2011
-	Scope: 
-		- Interested in determining current solutions for storing sensor data in the Cloud
-		- required understanding of:
-			* general cloud computing ideas and terminology
-			* specific connections between Cloud Computing and Sensors
-			* cloud (and general file/data) synchronization options
-			* database replication
-			* Weak n/w connection handling
-		- During search expanded notion from simple synchronization at source to cloud gateway
+Data management becomes crucial in ensuring that the correct lessons are learned from the mighty deluge of data that has emerged Sensors are able to generate a staggering amount of data and their provenance and storage must be ensured. Furthermore, we have not reached a stage of global network reliability. Instead, coverage is interspersed, systems go on and offline and latencies range from the practically non-existent to maddening delays.
 
-	Methods:
-			Google scholar
-			Wikipedia
-			Paper references
-			alternativeto
-			ieee
-			acm
+Cloud computing, the provisioning of on-demand computing resources, may be able to help with the storage and computational analysis needs of researchers and industry. Their data are being generated at high frequencies from a multitude of devices that are deployed all about the us, or worn or carried by us. These data however, require entry into the cloud. 
 
-Outcomes			
-	
-	Cloud Computing And Sensor Data
-		Observations
-			- Most resources are orientated at the Cloud-level (that is to tsay the back-end data centres) rather than the data input level
-			- ``Capacities continue to double each year, while access times are improving at 10 percent per year.'' - Jim Grey http://queue.acm.org/detail.cfm?id=864078
-			- The Big 4 (Amazon, Microsoft, Google and Rackspace) offer various storage models
-			- According to http://www.broadbandspeedchecker.co.uk/: 31.21 Mb/s download (337068 MB/d ), 13.29 Mb/s upload (143532 MB/d) here at Horizon
-		
-		General resources
-			Above the Clouds: A Berkeley View of Cloud Computing
-				- Definitions: 	* cloud = Datacentre h/w + s/w
-								* SaaS = Services run on top of datacentre
-				- Opportunities:	* The cloud will become dominant because it is the most convenient way to store automated (large) datasets from sensors and users -- services can then process, analyse and mashup the highly available data 
-									* infinite capacity on-demand
-				- Obstacles:	* Service availability
-								* Data lock-in -- possibly mitigated by API standardization
-								* Data confidentiality -- mitigated by encryption prior to storage
-								* Data transfer bottlenecks -- costs (\$100-\$150 / TB -- unclear where figure comes from; )
-																- SneakerNet is probably not viable here [Automated SneakerNet for smart buildings???]
-			
-			Cloud Storage: Adoption, Practice and Deployment
-				- Definitions: 	* cloud computing = WAN infrastructure
-								* Cloud (with a capital C) = the public data network including the Internet
-				- Provides a good overview of various issues such as security and data verification, performance, inter-cloud portability
-				- Block Systems, File Systems (CIFS, NFS and GFS) and Object Storage
+This sensor-cloud connection is a problem worth considering. In some cases plain old data transfer solutions (PODTS) may be the best choice. Such users could simply collect sensor reading data into files on a device and direct it to periodically post the files to a data store using a well known protocol such as FTP. This is a viable solution when the users don't care about lost datapoints (perhaps owing to device or network failure), data tampering, data size, cache failure, or possibly even storage provider lock-in. Given these concerns PODTS is probably not appropriate for many situations and projects.
 
+Considering data transfer from the local capture network to the cloud therefore motivates determining answers to these key issues:
+\begin{itemize}
+\item What options are available for transferring and storing data from local capture environments to the cloud? What are the tradeoffs for the various options?
+\item What cloud storage options are available?
+\item What existing architectures and system components have already been proposed for moving data into the cloud? What are their advantages and limitations, and is there room for improvement?
+\item What methods exist for data security and privacy, both in terms of transfer and storage? When should such measures be taken? Is it possible to allow secure analysis of the data within the cloud? How should key management work within this context?
+\item What metadata ought to be transmitted with the data? What standards are currently available? Are these standards sufficient and do they enable appropriate reasoning about the data and their provenance?
+\item How do various Horizon projects currently handle these issues and what recommendations can be made to upgrade the projects to best practices?
+\item How can we model or simulate sensor cloud integration in order to minimise deployment costs and problems?
+\end{itemize}
 
-			http://gigaom.com/2011/11/29/when-can-we-stop-talking-about-the-cloud/
-				``If I was explaining either service to my parents, for example, I would try not to use the term ``cloud'' at all. It wouldn''t really make any sense to them without an explanation, and once I started explaining it -- how the cloud is a bunch of servers that Amazon or Google maintains in giant buildings that hold billions of individual files -- it would actually make things worse. If I just pointed out that any files placed in a specific folder would automatically show up in other folders on different computers, then they would understand everything they need to know.''
-			
-			Cloud growth:
-				http://gigaom.com/cloud/amazon-storing-more-than-449-billion-objects-in-s3/
-				http://gigaom.com/cloud/rackspace-cloud-revenue-keeps-rising-tops-100m/
-			
-			Basic principles of Machine-to-Machine communication and its impact on telecommunications industry
-				http://www.ericsson.com/res/docs/whitepapers/wp-50-billions.pdf
-	
-		Sensor-Cloud
-			Can We Plug Wireless Sensor Network to Cloud?
-				- Raw data vs events
-					simple or complex events
-				- Proposed platform architecture (unclear where platform components live)
-					[Of interest to this work (other components are downstream to sync data)]
-					* WSN virtualisation manager
-						- adapter provides raw byte stream from WSN to gateway which gateway enques as a raw packet in a buffer
-						- Data processors affect enqueued packets
-						- Command interpreter reprograms sensors via the gateway
-					* Computation and storage manager
-						- Processes and archives sensor data as XML
-			% System Architecture Directions for Tangible Cloud Computing
-				% - Excluded on the basis of not solving sync problem
-			A framework of sensor-cloud integration opportunities and challenges
-				- Goal: connect sensors, people and s/w to build community-centric sensing applications
-				- "current Cloud providers did not address the issue of integrating sensor network with Cloud applications and thus have no infrastructure to support this scenario"
-				- Cloud vs grid (and how cloud is more appropriate for WSN data, but wsn-cloud integration is an unaddressed issue )
-				- Proposed solution
-					- Sensors stream data to gateway
-					- Gateway sends data to pub-sub system in the cloud
-					- Cloud services provide event monitoring and application services
-			A design of flexible data channels for sensor-cloud integration
-				- Attempts to integrate data channels from sensors to data analysis jobs in cloud
-				- Their tools include Sensor Server
-					- Runs on SN master node
-					- activate/deactivate slave nodes
-					- filter sn data
-					- deliver data to clouds
-					- Acts as a pull-based FTP server that makes sensors accessible to cloud services as files
-				- Comms models
-					- Push based
-						* 1 data point = UDP packet or SNMP packet
-					- Pull based				
-			WhereStore: location-based data storage for mobile devices interacting with the cloud
-				%- [A lot of the paper would be useful when considering predicitve storage patterns, however notes about their location prediction have been excluded from this lit revie]
-					% - "Predicting an application's data pattern is one problem, deciding the exact time at which data should be fetched from the cloud is yet another." 
-					% - "a system like WhereStore can use information about current and future Internet access opportunities as well as information about different access technologies (e.g. 3G or WiFi) to make decisions about when to communicate with a remote cloud storage service. An intelligent decision may reduce the total power consumption of the device without data access penalties"
-				- Filtered replication
-					- keep data synced b/w set of peers
-						- collections of items (each item containing data and metadata)
-						- replicas of entire collections or subsets
-						- filters (predicates over metadata) describe subsets
-				- architecture
-					- phone client, cloud server
-					- WhereStore is stacked on top of:
-						-filtered replication system
-							- sync local cache on phone with cloud data items
-							- smartphone replica contains items defined by its filter
-								- subset of items for which totla capacity is below specified storage capacity
-								- selection algorithm is given in paper
-							- Based on Cimbiosys
-								- Data accessed through callbacks
-						-location service
+The following literature review attempts to answer these questions by examining the academic and industrial state-of-the-art in sensor-cloud integration. This section begins with a review of general cloud computing and sensor network ideas and terminology then looks into specific sensor-cloud integration. The review began as an examination into cloud (and general file/data) synchronization options but has exposed various cloud gateway issues such as compression, security, metadata management, compression and external connection handling. The general method of research for this section involved the identification and search of key journals, conferences and industrial player white papers to find relevant high impact works and to critically analyse these to answer the above questions.
+
+\subsection{Sensor Networks And Cloud Computing Defined}	
+Sensor networks are a well-researched area of distributed computing. The design of them and their network dynamics have been well-studied and are, in most part, outside the scope of this survey. The curious reader is invited to review key surveys of sensor networks such as \cite{Akyildiz2002393}, \cite{1368897} and \cite{Yick20082292}. Of interest, though from sensor networks is the notion of sink nodes. These nodes tend to collect data from the other nodes and forward them on to base stations. For our purposes, we will consider such nodes to be gateways between the local data capture environment and the external storage and analysis environment. We will limit our survey to how these gateway nodes exchange information between the local environment and the external ones.
+
+Cloud computing, the provisioning of on-demand computing resources,	has garnered a great deal of recent attention. Cloud computing shares charateristics with earlier distributed computing methods such as cluster computing and grid computing however there are unique features sepcific to it. Here, we follow the NIST definition of Cloud computing from \cite{Mell2011}:
+
+``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction.''
+
+NIST describes three service models: Software as a Service (SaaS), Platform as a Service (PaaS) and Infrastructure as a Service (IaaS). For this survey, we are particularly interested in the data storage facet of Cloud computing. Cloud data storage can be provisioned using any of the service models. For instance, an IaaS solution might be hosting a NoSQL database solution on a series of Amazon EC2 compute nodes, a PaaS solution may be to use a storage web service such as Microsoft SQL Azure, and a SaaS solution may be to use an online solution such as Dropbox.
+
+Cloud storage, according to \cite{armbrust2009above} is likely to become a dominant sensor storage solution because of the potential convenience it offers to data set collectors and users. Cloud storage offers the appearance of infinite on-demand capacity as the provisioning of services to process, analyse and mashup data. They also pointed out, however, key obstacles that must be overcome to realise the vision of cloud storage. Chief amongst these are 	service availability, service provider lock-in, data confidentiality issues, and data transfer bottlenecks and costs. These issues are addressed throughout this document. \cite{Connor2011} provides an IT industry high-level overview of cloud storage and is a good primer regarding existing storage APIs and requirements. 			
+
+According to \cite{4812386} different categories of data storage applications have relative likelihoods of using cloud for storage. They posit that transactional mission critical data will remain out of the cloud owing to potential security or privacy attacks on the data. On the other hand they believe that cloud storage is well-suited to 
+analytical and business intelligence data. A key ingredient for success according to them will be being able to operate on encrypted data (which is considered in greater detail below in the section on data security).
+
+We will return to cloud storage options further down in this survey, but first we must survey the current state of connecting sensors and the cloud.
+
+\subsection{Sensor Cloud Integration}					
+There has been relatively little attention given to integrating sensor networks with cloud computing compared with other topics in either domain. Of note however are the works of \cite{briefingscan}, \cite{hassan2009framework}, \cite{melchor2011design}, \cite{Stuedi:2010:WLD:1810931.1810932}, \cite{5678063}, \cite{s111211581}, \cite{Patil2011}.
+
+A system model and architecture for sensor network cloud integration is proposed in \cite{briefingscan}. Each sensor in their system is programmed individually to send data to a gateway node running in the cloud. The gateway receives raw bytes from the sensor network and enques them as packets. It also provides capabilities to reprogram nodes. A storage manager module processes and archives the sensor data. There are also interfaces for data consumption. Unfortunately, the paper is extremely high level and no further details were given of these components, nor were any test results provided.
+
+A key motivating factor for existing sensor-cloud integration works has been immediate response to sensor readings. Such works however, tend to neglect long-term storage of the readings. While immediate reaction is important (such as for emergency response), long-term storage also has value. For instance, it is important to be able to review long-term changes to sensor readings in a building in order to best maintain it. An integration framework for connecting sensor networks to cloud applications was proposed in \cite{hassan2009framework}. They chiefly focused on determining events from the data and using a pub/sub model to inform clients of the given events. In their framework sensors pass data to gateway nodes that transmit them to a pub/sub broker. A policy engine controls how data is analysed. While this work provides a good starting architecture for responding to immediate sensor events, it does not discuss how data can be stored within the cloud however, brief mention is given to this problem in some follwo up work in \cite{5421618} where they mention (but provide no details about) storing data in a database local to the cloud gateway. They also provide a diagram that includes a "cloud db" object, but provide no information about this. Additional follow on work was reported about wireless sensors transmit data to cloud resources in \cite{s111211581} in order to build healthcare services. For this work a cloud gateway was deployed in the home of a patient and attached to a router. The data were then transmitted to servers running in the cloud. Unfortunaltey, to explain how this was done, they simply refered back to the previous work. The work in \cite{melchor2011design} was also motivated by immediate response and they showed how to provide immediate sensor data to in cloud data analysis jobs. In their architecture the gateway node (known as the sensor server) maintains an FTP server delivering data stored on each sensor that responds to pull requests. Such a solution is somewhat unsatisfactory however, because it is possible for data loss to occur resulting from limited sensor storage resources.
+
+Another motivating factor for existing sensor-cloud integration works has been the opposite problem to the one that is under examination here, which is how to fetch data from the cloud and cache it on local devices. Such works are worth considering because they integrate cloud and local environments. In the work presented in \cite{Stuedi:2010:WLD:1810931.1810932} smart phone data caches are synchronised with cloud storage. Cache synchronisation was handled using the Cimbiosys pull-orientated platform for replication \cite{Ramasubramanian09cimbiosys:a}. Such pull-orientated solutions, however, are undesireable owing to the potential for data loss as discussed above.
 						
-			A survey of mobile cloud computing
-				- mobile cloud computing (MCC)
-				- obstacles / MCC advantages
-					performance 
-						battery life / Extending battery lifetime
-						storage / Improving data storage capacity
-						low bandwidth
-					environment
-						heterogeneity
-						scalability / MCC apps can be scaled to meet the unpredictable user demands
-						availability
-					security
-						reliability / Improving reliability (reduces the chance of data and application lost)
-						privacy
-							data integrity / [92] presents energy efficient solution
-							authentication / [93] presents method for secure the data access suitable for mobile environments
-					data access
-							mechanism to manage, and synchronize data between mobile devices and the cloud to deal with changes
-of data on the cloud
-						[102] addresses three main issues as follows: maintaining seamless connection between users and
-clouds, controlling cache consistency, and supporting data privacy
+Integrating sensor monitoring and modeling applications was the focus of \cite{5678063}. They noted that sensor networks data analysis and modeling has tended to be ad hoc. In their architecture the gateway is used to send sensor data to sensor network models that run in the cloud. Unfortunately, no details are provided regarding how the data are transferred, nor about problems regarding load or connection failure handling.
 
-				- Mobile Cloud Computing (MCC) architecture(Fig. 1)
-				- Cloudlets: trusted, resource-rich computer or cluster of computers which is wellconnected
-to the Internet and available for use by nearby mobile devices
-			Usable, lightweight and secure, architecture and programming interface for integration of Wireless Sensor Network to the Cloud.
-				*** The following notes are direct copies of text:
-				- The integration of wireless sensor networks, aggregated with sensor data but with limited processing power, with a resource-rich cloud computing infrastructure makes the integration beneficial in terms of i) scalability of data storage, ii) scalability of processing power for data mining and analysis, iii) access to the processing and storage infrastructure anywhere in the world, iv) resource optimization, v) and using pricing as one more criteria for the IT infrastructure.
-				- Intortus, to enable this exploration of integrating sensor networks to the emerging cloud computing paradigm.
-				- Intortus wherein sensor nodes collect data and send data to a gateway. The gateway aggregates data from the Wireless Sensor Network (WSN).
-				- gateway in Intortus uses the same hardware as the sensor node (a wall powered mote)
-				- web API with defined methods for accessing data
-				- Intortus sends data from the gateway to the cloud securely using message authentication and encryption
-				- user authentication data access policy and gateway authentication
-				- Intortus currently, deals with a single application and is a framework dealing with solely data storage and communication to and fro the cloud in a secure manner
-				- Intortus system consists of a cloud service that will be used to add data from the gateway to the cloud data store
-				- Intortus provides the above first two services:
-					1. Store data from the WSNs securely.
-					2. Make this data available to users for viewing through web pages, to smart phone applications which will connect to Intortus and to other programs which will connect directly to Intortus
-					3. Get input from users via web pages, smart phone apps or other programs to control the applications in the WSNs.
-					4. Allow applications to be loaded from desktop computers through the cloud service to the WSN gateways, which will then push them onto individual motes in the WSN.
-				- eMotes are loaded with software to collect, encode, and transmit data through wireless communication channels to the gateway
-				- gateway is responsible to receive data from sensors and to dispatch it to be appropriate storage service hosted on cloud. The gateway structures data in the form of an XML and sends it over to the cloud. The data is sent to the cloud using web API method calls. The web API is created from a web service which is hosted in the cloud for interoperability from .NET Micro framework at the gateway to Java in the cloud.
-				- data storage is Google App Engine
-				- Intortus data storage API, used to store data from data aggregated at the gateway, creates a relational interface to the key value data structure so that the application providers need no knowledge of the Google App Engine data store structure while inserting data to the cloud. Data in the cloud is stored in an encrypted form for security purposes. Data can be accessed by an API which is a REST
-				- Security in Intortus includes message authentication and encryption, data access, user authentication and gateway authentication
-				- Challenges:
-					* limited sensor node hardware resources make it hard to implement a security platform that incorporates the security requirements of Intortus.
-			An autonomic cloud environment for hosting ECG data analysis services
-				- Of little interest
-			Cloud4Home-- Enhancing Data Services with AtHome Clouds
-				*** The following notes are direct copies of text (unless prefaced by ***):
-				- current 'thin client' models in which end devices 'simply access the Internet' can suffer from high and variable delays in accessing and using remote resources
-				- they are subject to challenges when devices must operate in disconnected
-				- should leverage the lower costs of using local resources and exploiting locally available state, avoid potential issues with data privacy or security for cloud-based operation
-				- should exploit Internet resources when those are not encumbered by undue costs like high latency or undue communication overheads
-				- data services explored in the paper can tap into the aggregate resources offered by remote clouds, and they can leverage 'nearby' devices in home or office settings. The outcome is quality in service delivery that exceeds that of the pure 'in the cloud' or 'at the edge' service realizations.
-				*** not really cloud is it -- data centre oriented...
-				- focus n services for storage, access, and manipulation of data for the home environment and when doing so, we leverage the VStore++
-					- virtualized object storage system that abstracts from an application where the objects it accesses are stored
-					- VStore++ will track resource availability in order to direct requests to appropriate destinations
-based on their needs and/or resource availability, using a global indexing and monitoring infrastructure maintained
-during its operation
-					- Cloud4Home comprised of dynamically varying sets of devices that cooperate to provide end users with seamless storage, access, and data manipulation services, including interactions with remote,
-publically available cloud platforms
-					- vStore++ uses a standard file system to represent objects, using a one-to-one mapping
-of objects to files. In addition to object fetch and store operations, it supports an explicit process operation, which
-permits object manipulation functions to be associated with the object access								*** overkill for WSN???
-					- metadata layer provides object lookup and transparent access to storage and services distributed across nodes in the home or remote clouds
-					 - metadata management layer is built as a distributed key-value store on top of a peer-to-peer overlay across all control domains in the home cloud
-					 - One or more nodes in the home cloud support a public cloud interface module, responsible for routing all remote cloud interactions
+The work in \cite{Patil2011} points out the benefits of sensor network cloud integration: data storage and computation scalability as well as world-wide resource access. Their system, Intortus, interfaces with sensor netowrk gateways to securely store data and make the data available to other applications. In this architecture gateways receive sensor data and dispatch them as XML messages using web services to data storage services running on Google App Engine. Data are encrypted using AES-128 before transmission to the client and decrypted by clients when data are requested. This work does not, however, address issues to do with connectivity, using data in the cloud (besides for backup), handling multiple cloud storage vendors, metadta descriptions, or sensor network cloud simulation.
+
+Although not directly related to sensor network cloud integration, the work in \cite{5961767} is of interest because they suggest an approach that integrates the local environment with the cloud. They were concerned by great latencies in opperation for home environments reliant on cloud services that could become disconnected from the Internet. Their solution, called VStore++ monitors resource availability in the local and external environement and directs services to them. This approach has some beneficial characteristics, however, would probably be overkill for most sensor networkds whose main tasks will be to simply collect data from devices.
+
+The work presented in \cite{5948614} 
 			Towards Reliable, Performant Workflows for Streaming-Applications on Cloud Platforms
 			*** The following notes are direct copies of text (unless prefaced by ***):
 				- propose and present a scientific workflow framework that supports streams as first-class data, and is optimized for performant and reliable execution across desktop and Cloud platforms
@@ -198,6 +65,16 @@ is another concern to be addressed. Too, there has to be intelligence to avoid c
 				- registry service that maintains a list of known streams and the endpoints where particular
 streams are provided
 				- fault resistance: (1) transient or permanent loss of physical network, and (2) loss of virtual machines in the Cloud or services running on them.
+			
+			Efficient Sotrage Retrival and indexing of time seriies data
+	
+	sensor web	
+		Semantic Sensor Web
+		New Generation Sensor Web Enablement
+		OGC Sensor Web Enablement Overview and High Level Architecture
+		Semantic Sensor Observation Service
+		Semantically-Enabled Sensor Plug \& Play for the Sensor Web
+		The SID Creator A Visual Approach for Integrating Sensors with the Sensor Web
 				
 	Cloud experiences
 			Adaptive Rate Stream Processing for Smart Grid Applications on Clouds
@@ -211,6 +88,8 @@ streams are provided
 				- adaptation logic (throttle)
 					- as the total power usage within the utility approaches total available capacity, power usage events are required more frequently to detect/forecast a peak load event with low latency.
 				- As future work, we plan to evaluate the scalability of the stream processing system with increasing number of VM instances, with the eventual goal of scaling up to 1.4 million smart meter streams that is expected in the Los Angeles Smart Grid. Both throughput and latency of the pipeline need to be measured as the stream rates adapt. Additional factors like availability of compute resources (\# of VMs), throughput of the stream processing system, and cost trade-off between Cloud resource usage and power conserved can be incorporated into the throttle policy.		
+				
+			Deploying Database Appliances in the Cloud
 			
 	Cloud Storage Gateway
 		General resources
@@ -223,7 +102,10 @@ streams are provided
 				- gateway resides at customer site
 					- can be dedicated appliance/server, virtual appliance/server, or s/w application
 						- features: compression, deduplication, encryption, caching, backup and recovery
-				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost \$50000+)		
+				- Provides useful table columns for comparing cloud grteways, but unfortunately the table is incomplete (only the Avere FXT was examined and these cost \$50000+)	
+
+			cloudStorage.pdf
+			redundant cloud storage with octopus
 			
 			http://gladinet.blogspot.com/2010/09/how-to-pick-cloud-storage-gateway.html 
 				- pick a cloud storage gateway, there are several questions:
@@ -280,7 +162,7 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 					- de-duplication
 					- user bandwidth throttling (time based or constant)
 					- 128-bit SSL
-					- data encrypted using 256-bit AES & fingerprinted by 160 bit SHA-1
+					- data encrypted using 256-bit AES \& fingerprinted by 160 bit SHA-1
 					- Restore all or individual files
 					- Rules-based CIFS, WebDAV and rsync based sync
 					- FTP
@@ -303,7 +185,7 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 						- each file is encrypted, compressed and backedup to the Nasuni Service
 					- cache management removes rarely re-used docs to respect the cache capacity
 				- portal provides
-					- volume & cache metrics
+					- volume \& cache metrics
 					- alerts/notifications
 					- remote file accss
 					- control file sharing in the network
@@ -404,6 +286,8 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 					- rsync is capable of limiting the bandwidth consumed during a transfer
 					- supports compression and decompression
 					- SSH
+				Efficient Algorithms for Sorting and sync
+				
 			DeltaCopy
 				- open source Windows' wrapper of rsync		
 				- GPL 3
@@ -473,7 +357,7 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 				- open-source dropbox alternative
 				- encrypts the files locally
 				- plug-in based storage system supporting FTP, Amazon S3, Google Storage, Rackspace Cloud Files, WebDAV, Picassa, Box.net
-				- Currently immature (alpha not yet released -- Windows & MAC versions are even further behind)
+				- Currently immature (alpha not yet released -- Windows \& MAC versions are even further behind)
 		
 		
 		Online services
@@ -575,7 +459,7 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 			Duplicati
 				Open Source by Kenneth Skovhede, mortenmie, et al 
 				Windows, Linux 
-				- c#
+				- c\#
 				LGPL
 				- storing the initial copy and then differentials to go from the initial version to the current
 				- works with a number of different backends, eg. FTP, WEBDAV and S3, Rackspace Cloud File
@@ -617,6 +501,7 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 			GlusterFS
 			RFS
 				RFSa network file system for mobile devices and the cloud [102]
+				addresses three main issues as follows: maintaining seamless connection between users and clouds, controlling cache consistency, and supporting data privacy
 		WebDAV 
 		FUSE		
 
@@ -661,6 +546,7 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 	
 	Cloud data security
 		Challenges in Secure Sensor-Cloud Computing
+		Toward Securing Sensor Clouds
 		http://gigaom.com/cloud/the-cloud-meets-the-law-where-wikileaks-went-wrong/
 		Structured Encryption and Controlled Disclosure
 		Computing Arbitrary Functions of Encrypted Data
@@ -672,3 +558,9 @@ www.nasuni.com/blog/28dirtysecrets5weaknessesofcloudstorage
 		[92] Energy-efficient incremental integrity for securing storage in mobile cloud computing
 		Lightweight and Compromise Resilient Storage Outsourcing with Distributed Secure Accessibility in Mobile Cloud Computing
 		[93] Authentication in the clouds: a framework and its application to mobile users				
+		Every Cloud has An Encrypted Lining- The Effectiveness of Cryptography in Cloud Computing
+		
+	SN/Cloud simulation
+		Avrora Scalable Sensor Network Simulation
+		CloudSim2010
+		simulating wireless sensor networks with omnet++
